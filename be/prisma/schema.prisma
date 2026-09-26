@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+enum Role {
+  WARGA
+  RT
+}
+
+model User {
+  id         String      @id
+  email      String      @unique
+  name       String
+  role       Role        @default(WARGA)
+  rt         String      // Nomor RT, contoh: "005"
+  rw         String      // Nomor RW, contoh: "003"
+  kelurahan  String      // Nama Kelurahan
+  kecamatan  String      // Nama Kecamatan
+  createdAt  DateTime    @default(now())
+  updatedAt  DateTime    @updatedAt
+  Complaint  Complaint[]
+}
+
+model Complaint {
+  id          String   @id @default(uuid())
+  title       String
+  description String
+  attachment  String?
+  category    String?
+  score       Int?
+  aiReason    String?
+  status      String   @default("PENDING")
+  userId      String
+  user        User     @relation(fields: [userId], references: [id])
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
