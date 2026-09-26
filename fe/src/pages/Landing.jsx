@@ -32,11 +32,11 @@ export default function Landing() {
           <div className="absolute w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 bottom-0 left-10"></div>
           
           <div className="relative z-10 animate-bounce-slow" style={{ animationDuration: '4s' }}>
-             <div className="drop-shadow-2xl relative">
-                <img src="/assets/hero_gabungan.jpg" alt="Ilustrasi SITARA" className="w-[320px] h-[320px] lg:w-[400px] lg:h-[400px] rounded-[3rem] object-cover border-4 border-white shadow-2xl" />
+             <div className="relative">
+                <img src="/assets/hero_gabungan.jpg" alt="Ilustrasi SITARA" className="w-[320px] h-[320px] lg:w-[400px] lg:h-[400px] object-contain mix-blend-multiply" />
                 
                 {/* Floating Badges */}
-                <div className="bg-white px-4 py-2 rounded-xl shadow-lg border border-slate-100 absolute top-8 -right-6 rotate-6 animate-pulse">
+                <div className="bg-white px-4 py-2 rounded-xl shadow-lg border border-slate-100 absolute top-8 -right-6 rotate-6 animate-pulse z-10">
                   <div className="text-lg font-black text-slate-800">⚡ Prioritas Cepat</div>
                 </div>
                 

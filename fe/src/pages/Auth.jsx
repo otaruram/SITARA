@@ -45,24 +45,6 @@ export default function Auth() {
       </div>
 
       <div className="relative w-full max-w-md animate-in zoom-in-95 duration-500">
-        
-        {/* Peeking Characters */}
-        <div className="absolute -top-10 -right-8 w-24 h-24 z-20 animate-bounce-slow" style={{ animationDuration: '4s' }}>
-          <img src="/assets/pak_rt_jempol.jpg" alt="Pak RT" className="w-full h-full object-cover rounded-full border-4 border-white shadow-xl" />
-        </div>
-        
-        <div className="absolute top-1/4 -left-12 w-20 h-20 z-0 animate-bounce-slow" style={{ animationDuration: '3.5s' }}>
-          <img src="/assets/warga_penasaran.jpg" alt="Warga" className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg transform -scale-x-100" />
-        </div>
-        
-        <div className="absolute bottom-10 -left-8 w-16 h-16 z-0 animate-bounce-slow" style={{ animationDuration: '4.5s' }}>
-          <img src="/assets/warga_laporan.jpg" alt="Warga" className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg" />
-        </div>
-        
-        <div className="absolute bottom-20 -right-10 w-20 h-20 z-0 animate-bounce-slow" style={{ animationDuration: '5s' }}>
-          <img src="/assets/ai_robot_mini.jpg" alt="AI" className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg" />
-        </div>
-
         {/* Central Card */}
         <div className="w-full bg-white rounded-[2rem] border-2 border-slate-100 shadow-2xl overflow-hidden relative z-10">
         <div className="p-8 sm:p-12">
