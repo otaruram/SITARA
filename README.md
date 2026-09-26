@@ -39,6 +39,10 @@ Sistem ini dibangun dengan arsitektur terpisah (*decoupled architecture*) antara
 
 ### 3. Pemrosesan Bahasa Alami (NLP) Menggunakan LLM
 - Data teks deskriptif yang dikirim warga dikirim ke antarmuka AI berbasis *Large Language Model (LLM)* dari **Sumopod**.
+- **Rasionalisasi Pemilihan LLM & NLP (Zero-Shot Learning):** 
+  - Dibandingkan menggunakan model *Machine Learning* tradisional (seperti Naive Bayes atau SVM) yang membutuhkan berbulan-bulan pengumpulan ribuan data latih (*labeled training data*), LLM dipilih karena kemampuannya dalam **Zero-Shot Learning**. LLM sudah dilatih dengan triliunan token parameter sehingga mampu memahami instruksi tanpa perlu data latih spesifik.
+  - LLM mampu melakukan **Pemahaman Kontekstual (*Contextual Understanding*)**, bukan sekadar pencocokan kata kunci (*keyword matching*). LLM bisa membedakan tingkat bahaya antara kalimat "Kabel listrik terputus dan mengeluarkan api" dengan "Kabel telepon menjuntai merusak pemandangan".
+  - **Efisiensi Multi-Tasking:** Satu panggilan API ke Sumopod LLM dapat menghasilkan tiga output komputasi sekaligus: Klasifikasi, Skoring, dan *Reasoning*, yang jika menggunakan arsitektur ML konvensional akan membutuhkan tiga model yang berbeda.
 - **Mekanisme NLP & Penentuan Urgentitas:** LLM diinstruksikan melalui *Prompt Engineering* khusus untuk bertindak sebagai analis sistem tanggap darurat. LLM mengekstrak semantik dari teks untuk mendeteksi kata kunci, konteks ancaman, dan skala dampak.
   - **Skor (0-100):** Sistem menghitung skor berdasarkan matriks risiko. Kasus yang mengancam nyawa, kerusakan infrastruktur berat (misal: kebakaran, kabel listrik putus) akan diberikan skor >80. Masalah administratif atau estetika (misal: rumput panjang) diberikan skor <40.
   - **Kategorisasi:** LLM menggunakan pemahaman konteks untuk mengelompokkan laporan ke dalam label statis (Infrastruktur, Keamanan, Lingkungan, dll).
