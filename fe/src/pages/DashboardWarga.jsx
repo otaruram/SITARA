@@ -106,57 +106,60 @@ export default function DashboardWarga() {
   };
 
   return (
-    <div className="space-y-8 animate-in fade-in duration-500">
+    <div className="space-y-8 animate-in fade-in duration-500 max-w-6xl mx-auto px-4">
       <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-3xl font-bold text-slate-900">Dashboard Warga</h1>
-          <p className="text-slate-500 mt-1">Pantau dan kelola laporan pengaduan Anda</p>
+          <h1 className="text-4xl font-black text-slate-900 flex items-center gap-3">
+            <img src="/assets/warga_penasaran.jpg" alt="Warga" className="w-14 h-14 rounded-full object-cover border-2 border-slate-200" /> 
+            Halo, Warga!
+          </h1>
+          <p className="text-slate-500 font-medium mt-1">Pantau dan kelola laporan pengaduan Anda di sini.</p>
         </div>
         <button 
           onClick={() => setShowForm(!showForm)}
-          className="flex items-center gap-2 bg-slate-900 text-white px-5 py-2.5 rounded-lg font-medium hover:bg-slate-800 transition-colors shadow-sm"
+          className="flex items-center gap-2 bg-slate-900 text-white px-6 py-3 rounded-2xl font-bold hover:bg-slate-800 transition-all shadow-md hover:shadow-xl hover:-translate-y-1"
         >
-          {showForm ? <X className="w-5 h-5" /> : <Plus className="w-5 h-5" />}
-          {showForm ? 'Tutup Form' : 'Buat Pengaduan Baru'}
+          {showForm ? <X className="w-5 h-5" /> : <span className="text-xl leading-none">+</span>}
+          {showForm ? 'Tutup Form' : 'Buat Laporan Baru'}
         </button>
       </div>
 
       {showForm && (
-        <div className="bg-white p-6 md:p-8 rounded-2xl border border-slate-200 shadow-sm relative animate-in slide-in-from-top-4 fade-in duration-300">
-          <h2 className="text-xl font-bold text-slate-900 mb-6">Formulir Pengaduan</h2>
+        <div className="bg-white p-8 md:p-10 rounded-[2rem] border-2 border-slate-100 shadow-xl relative animate-in slide-in-from-top-4 fade-in duration-300">
+          <h2 className="text-2xl font-black text-slate-900 mb-6 flex items-center gap-2">📝 Tulis Laporan</h2>
           
-          <div className="mb-6 bg-slate-50 border border-slate-200 rounded-lg p-4 flex gap-3 text-sm text-slate-700">
-            <AlertCircle className="w-5 h-5 text-slate-500 flex-shrink-0" />
-            <p>Jelaskan keluhan Anda sedetail mungkin. Sistem AI kami akan otomatis membaca tingkat urgensinya.</p>
+          <div className="mb-8 bg-blue-50 border-2 border-blue-100 rounded-2xl p-5 flex gap-4 text-sm text-blue-900 font-medium items-center">
+            <img src="/assets/ai_robot_mini.jpg" alt="AI" className="w-16 h-16 rounded-xl object-cover shadow-sm flex-shrink-0" />
+            <p>Jelaskan keluhan Anda sedetail mungkin. <b>Asisten AI kami</b> akan otomatis membaca dan menentukan tingkat urgensinya agar cepat ditangani Pak RT!</p>
           </div>
 
-          {error && <div className="mb-6 p-3 bg-red-50 border border-red-200 text-red-600 rounded-lg text-sm font-medium">{error}</div>}
+          {error && <div className="mb-6 p-4 bg-red-50 border-2 border-red-100 text-red-700 rounded-2xl text-sm font-bold">⚠️ {error}</div>}
 
-          <form onSubmit={handleSubmit} className="space-y-5">
-            <div className="space-y-1.5">
-              <label className="block text-sm font-medium text-slate-700">Judul Keluhan</label>
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="space-y-2">
+              <label className="block text-sm font-bold text-slate-700">Judul Laporan</label>
               <input 
                 type="text" 
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all"
+                className="w-full px-5 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-slate-900 transition-all font-medium"
                 placeholder="Contoh: Lampu jalan mati di Blok B"
                 required
               />
             </div>
-            <div className="space-y-1.5">
-              <label className="block text-sm font-medium text-slate-700">Deskripsi Detail</label>
+            <div className="space-y-2">
+              <label className="block text-sm font-bold text-slate-700">Deskripsi Detail</label>
               <textarea 
                 value={desc}
                 onChange={(e) => setDesc(e.target.value)}
                 rows={4}
-                className="w-full px-4 py-2.5 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all resize-none"
+                className="w-full px-5 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-slate-900 transition-all font-medium resize-none"
                 placeholder="Ceritakan kejadiannya..."
                 required
               />
             </div>
-            <div className="space-y-1.5">
-              <label className="block text-sm font-medium text-slate-700">Lampiran Bukti (Maks. 1 Gambar)</label>
+            <div className="space-y-2">
+              <label className="block text-sm font-bold text-slate-700">Lampiran Bukti (Opsional)</label>
               <input 
                 type="file" 
                 accept="image/*"
@@ -165,81 +168,81 @@ export default function DashboardWarga() {
                   setFile(selectedFile || null);
                   setError('');
                 }}
-                className="w-full px-4 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all file:mr-4 file:py-2 file:px-4 file:rounded-full file:border-0 file:text-sm file:font-semibold file:bg-slate-100 file:text-slate-900 hover:file:bg-slate-200 cursor-pointer"
+                className="w-full px-5 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-slate-900 transition-all file:mr-4 file:py-2.5 file:px-5 file:rounded-xl file:border-0 file:text-sm file:font-bold file:bg-slate-100 file:text-slate-900 hover:file:bg-slate-200 cursor-pointer text-slate-500 font-medium"
               />
             </div>
-            <div className="flex justify-end pt-2">
+            <div className="flex justify-end pt-4">
               <button 
                 type="submit"
                 disabled={submitting}
-                className="flex items-center gap-2 bg-slate-900 text-white px-6 py-2.5 rounded-lg font-semibold hover:bg-slate-800 transition-colors shadow-sm disabled:opacity-70 disabled:cursor-not-allowed"
+                className="flex items-center gap-2 bg-[#FFD700] text-amber-950 px-8 py-3.5 rounded-2xl font-black hover:bg-yellow-400 transition-all shadow-lg disabled:opacity-70 disabled:cursor-not-allowed"
               >
-                {submitting && <Loader2 className="w-4 h-4 animate-spin" />}
-                {submitting ? 'Mengirim & Menganalisis AI...' : 'Kirim Laporan'}
+                {submitting && <Loader2 className="w-5 h-5 animate-spin" />}
+                {submitting ? 'Mengirim & Menganalisis...' : 'Kirim Laporan 🚀'}
               </button>
             </div>
           </form>
         </div>
       )}
 
-      <div className="bg-white rounded-2xl border border-slate-200 shadow-sm overflow-hidden">
-        <div className="px-6 py-5 border-b border-slate-200 bg-slate-50 flex justify-between items-center">
-          <h3 className="text-lg font-bold text-slate-900">Riwayat Laporan Anda</h3>
-          <button onClick={fetchMyComplaints} className="text-sm font-medium text-slate-500 hover:text-slate-900 transition-colors">Refresh</button>
+      <div className="bg-white rounded-[2rem] border-2 border-slate-100 shadow-sm overflow-hidden">
+        <div className="px-8 py-6 border-b-2 border-slate-100 bg-white flex justify-between items-center">
+          <h3 className="text-xl font-black text-slate-900">Riwayat Laporan Saya</h3>
+          <button onClick={fetchMyComplaints} className="text-sm font-bold text-slate-500 hover:text-slate-900 transition-colors bg-slate-100 px-4 py-2 rounded-full">Refresh</button>
         </div>
         
         {loadingData ? (
-          <div className="p-12 flex flex-col items-center justify-center text-slate-500 gap-3">
-             <Loader2 className="w-8 h-8 animate-spin text-slate-400" />
-             <p>Memuat laporan...</p>
+          <div className="p-16 flex flex-col items-center justify-center text-slate-500 gap-4">
+             <Loader2 className="w-10 h-10 animate-spin text-slate-300" />
+             <p className="font-medium">Mencari laporan...</p>
           </div>
         ) : reports.length === 0 ? (
-          <div className="p-12 text-center text-slate-500">
-            <p>Belum ada laporan pengaduan yang Anda buat.</p>
+          <div className="p-16 flex flex-col items-center text-center text-slate-500">
+            <img src="/assets/kaca_pembesar.jpg" alt="Kosong" className="w-32 h-32 rounded-3xl object-cover mb-6 shadow-sm opacity-80" />
+            <p className="font-medium text-lg">Belum ada laporan pengaduan yang Anda buat.</p>
           </div>
         ) : (
           <>
             {/* Desktop Table View */}
-            <div className="hidden md:block overflow-x-auto">
+            <div className="hidden md:block overflow-x-auto p-4">
               <table className="w-full text-left border-collapse">
                 <thead>
-                  <tr className="bg-white border-b border-slate-200 text-sm text-slate-500">
-                    <th className="px-6 py-4 font-semibold">Tanggal</th>
-                    <th className="px-6 py-4 font-semibold">Laporan</th>
-                    <th className="px-6 py-4 font-semibold text-center">Skor AI</th>
-                    <th className="px-6 py-4 font-semibold text-right">Status</th>
+                  <tr className="text-sm text-slate-400 font-bold uppercase tracking-wider">
+                    <th className="px-6 py-4 rounded-l-2xl">Tanggal</th>
+                    <th className="px-6 py-4">Info Laporan</th>
+                    <th className="px-6 py-4 text-center">Skor AI</th>
+                    <th className="px-6 py-4 text-right rounded-r-2xl">Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-slate-100/0 space-y-4">
                   {reports.map((report) => (
-                    <tr key={report.id} className="hover:bg-slate-50 transition-colors">
-                      <td className="px-6 py-4 text-sm text-slate-600 whitespace-nowrap">
+                    <tr key={report.id} className="hover:bg-slate-50 transition-colors group">
+                      <td className="px-6 py-6 text-sm font-bold text-slate-600 whitespace-nowrap rounded-l-3xl">
                         {new Date(report.createdAt).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year:'numeric'})}
                       </td>
-                      <td className="px-6 py-4">
-                        <div className="font-semibold text-slate-900 mb-1">{report.title}</div>
-                        <div className="text-sm text-slate-500 line-clamp-1 mb-2">{report.description}</div>
+                      <td className="px-6 py-6">
+                        <div className="font-black text-slate-900 mb-1 text-lg">{report.title}</div>
+                        <div className="text-sm text-slate-500 font-medium line-clamp-1 mb-3">{report.description}</div>
                         {report.attachment && (
-                          <div className="flex flex-wrap gap-2 mt-2">
-                            <a href={report.attachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-1.5 text-xs text-slate-900 font-medium bg-slate-100 hover:bg-slate-200 transition-colors px-2 py-1 rounded-md">
-                              <Paperclip className="w-3.5 h-3.5" />
-                              <span>Lihat Lampiran</span>
+                          <div className="flex flex-wrap gap-2">
+                            <a href={report.attachment} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-xs text-slate-700 font-bold bg-slate-100 hover:bg-slate-200 transition-colors px-3 py-1.5 rounded-lg border border-slate-200">
+                              <Paperclip className="w-3.5 h-3.5" /> Lihat Lampiran
                             </a>
                           </div>
                         )}
                       </td>
-                      <td className="px-6 py-4 text-center">
-                        <span className={`inline-flex items-center justify-center font-bold text-xs rounded-md h-7 min-w-9 px-2 ${getScoreColor(report.score)}`}>
+                      <td className="px-6 py-6 text-center">
+                        <span className={`inline-flex items-center justify-center font-black text-sm rounded-xl h-10 w-10 ${getScoreColor(report.score)}`}>
                           {report.score || '-'}
                         </span>
                       </td>
-                      <td className="px-6 py-4 text-right">
-                        <div className="flex flex-col items-end gap-2">
+                      <td className="px-6 py-6 text-right rounded-r-3xl">
+                        <div className="flex flex-col items-end gap-3">
                           {getStatusBadge(report.status)}
                           {report.status === 'PENDING' && (
                             <button 
                               onClick={() => handleCancel(report.id)}
-                              className="text-xs text-red-600 hover:text-red-800 font-medium transition-colors"
+                              className="text-xs text-red-500 hover:text-red-700 font-bold transition-colors bg-red-50 px-3 py-1 rounded-full border border-red-100"
                             >
                               Batalkan
                             </button>
@@ -253,43 +256,33 @@ export default function DashboardWarga() {
             </div>
 
             {/* Mobile Card View */}
-            <div className="md:hidden divide-y divide-slate-100">
+            <div className="md:hidden p-4 space-y-4">
               {reports.map((report) => (
-                <div key={report.id} className="p-5 flex flex-col gap-3">
-                  <div className="flex justify-between items-start mb-1">
-                    <span className="text-xs font-semibold text-slate-500">
-                      {new Date(report.createdAt).toLocaleDateString('id-ID', {day: 'numeric', month: 'short', year:'numeric'})}
+                <div key={report.id} className="p-6 bg-white border-2 border-slate-100 rounded-3xl shadow-sm flex flex-col gap-4 relative">
+                  <div className="flex justify-between items-start">
+                    <span className="text-xs font-bold text-slate-400 bg-slate-100 px-3 py-1 rounded-full">
+                      {new Date(report.createdAt).toLocaleDateString('id-ID', {day: 'numeric', month: 'short'})}
                     </span>
-                    <div className="flex flex-col items-end gap-1">
-                      {getStatusBadge(report.status)}
-                      {report.status === 'PENDING' && (
-                        <button 
-                          onClick={() => handleCancel(report.id)}
-                          className="text-[10px] text-red-600 hover:text-red-800 font-medium transition-colors"
-                        >
-                          Batalkan Laporan
-                        </button>
-                      )}
-                    </div>
+                    {getStatusBadge(report.status)}
                   </div>
                   <div>
-                    <h4 className="font-semibold text-slate-900 mb-1">{report.title}</h4>
-                    <p className="text-sm text-slate-600 line-clamp-2">{report.description}</p>
+                    <h4 className="font-black text-slate-900 text-lg mb-1">{report.title}</h4>
+                    <p className="text-sm text-slate-500 font-medium">{report.description}</p>
                   </div>
-                  <div className="flex items-center justify-between mt-2 pt-3 border-t border-slate-50">
-                    <div className="flex flex-wrap gap-2">
-                      {report.attachment && (
-                        <div className="flex items-center gap-1 text-xs text-slate-500 bg-slate-100 px-2 py-1 rounded">
-                          <Paperclip className="w-3.5 h-3.5" /> 1 Gambar
-                        </div>
-                      )}
-                    </div>
+                  <div className="flex items-center justify-between pt-2">
                     <div className="flex items-center gap-2">
-                      <span className="text-xs text-slate-500 font-medium">Prioritas AI:</span>
-                      <span className={`inline-flex items-center justify-center font-bold text-xs rounded-md h-6 min-w-8 px-1.5 ${getScoreColor(report.score)}`}>
-                        {report.score || '-'}
-                      </span>
+                      <div className={`inline-flex items-center justify-center font-black text-xs rounded-xl h-8 px-3 ${getScoreColor(report.score)}`}>
+                        Skor: {report.score || '-'}
+                      </div>
                     </div>
+                    {report.status === 'PENDING' && (
+                      <button 
+                        onClick={() => handleCancel(report.id)}
+                        className="text-[11px] text-red-600 bg-red-50 font-bold px-3 py-1.5 rounded-full border border-red-100"
+                      >
+                        Batalkan Laporan
+                      </button>
+                    )}
                   </div>
                 </div>
               ))}

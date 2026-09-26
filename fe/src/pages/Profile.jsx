@@ -21,8 +21,12 @@ export default function Profile() {
         {/* Header Cover */}
         <div className="h-32 bg-slate-900 w-full relative">
           <div className="absolute -bottom-12 left-8">
-            <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center border-4 border-white shadow-md">
-              <UserCircle className="w-20 h-20 text-slate-300" />
+            <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center border-4 border-white shadow-md overflow-hidden">
+              {userRole === 'RT' ? (
+                <img src="/assets/pak_rt_modern.jpg" alt="Profil RT" className="w-full h-full object-cover" />
+              ) : (
+                <img src="/assets/warga_penasaran.jpg" alt="Profil Warga" className="w-full h-full object-cover" />
+              )}
             </div>
           </div>
         </div>
