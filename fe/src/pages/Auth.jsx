@@ -37,20 +37,6 @@ export default function Auth() {
       
       {/* Decorative Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-20 left-10 opacity-40 transform -rotate-12 animate-pulse" style={{ animationDuration: '4s' }}>
-          <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center text-4xl shadow-md border-4 border-slate-100">☁️</div>
-        </div>
-        <div className="absolute top-40 right-20 opacity-30 transform rotate-12 animate-pulse" style={{ animationDuration: '5s' }}>
-          <div className="w-32 h-32 bg-white rounded-full flex items-center justify-center text-6xl shadow-md border-4 border-slate-100">☁️</div>
-        </div>
-        
-        <div className="absolute bottom-20 left-20 animate-bounce-slow" style={{ animationDuration: '6s' }}>
-          <img src="/assets/warga_penasaran.jpg" alt="Warga" className="w-32 h-32 rounded-3xl object-cover border-4 border-white shadow-xl transform -rotate-6" />
-        </div>
-        <div className="absolute top-32 right-32 animate-bounce-slow" style={{ animationDuration: '5s', animationDelay: '1s' }}>
-          <img src="/assets/pak_rt_modern.jpg" alt="Pak RT" className="w-40 h-40 rounded-3xl object-cover border-4 border-white shadow-xl transform rotate-6" />
-        </div>
-        
         <div className="absolute top-1/2 left-10 text-3xl opacity-50">✨</div>
         <div className="absolute bottom-1/3 right-10 text-4xl opacity-50">💡</div>
         
@@ -58,7 +44,27 @@ export default function Auth() {
         <div className="absolute w-96 h-96 bg-amber-100 rounded-full blur-3xl opacity-40 bottom-0 right-0 translate-x-1/2 translate-y-1/2"></div>
       </div>
 
-      <div className="w-full max-w-md bg-white rounded-[2rem] border-2 border-slate-100 shadow-2xl overflow-hidden relative z-10 animate-in zoom-in-95 duration-500">
+      <div className="relative w-full max-w-md animate-in zoom-in-95 duration-500">
+        
+        {/* Peeking Characters */}
+        <div className="absolute -top-10 -right-8 w-24 h-24 z-20 animate-bounce-slow" style={{ animationDuration: '4s' }}>
+          <img src="/assets/pak_rt_jempol.jpg" alt="Pak RT" className="w-full h-full object-cover rounded-full border-4 border-white shadow-xl" />
+        </div>
+        
+        <div className="absolute top-1/4 -left-12 w-20 h-20 z-0 animate-bounce-slow" style={{ animationDuration: '3.5s' }}>
+          <img src="/assets/warga_penasaran.jpg" alt="Warga" className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg transform -scale-x-100" />
+        </div>
+        
+        <div className="absolute bottom-10 -left-8 w-16 h-16 z-0 animate-bounce-slow" style={{ animationDuration: '4.5s' }}>
+          <img src="/assets/warga_laporan.jpg" alt="Warga" className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg" />
+        </div>
+        
+        <div className="absolute bottom-20 -right-10 w-20 h-20 z-0 animate-bounce-slow" style={{ animationDuration: '5s' }}>
+          <img src="/assets/ai_robot_mini.jpg" alt="AI" className="w-full h-full object-cover rounded-full border-4 border-white shadow-lg" />
+        </div>
+
+        {/* Central Card */}
+        <div className="w-full bg-white rounded-[2rem] border-2 border-slate-100 shadow-2xl overflow-hidden relative z-10">
         <div className="p-8 sm:p-12">
           <div className="text-center mb-10">
             <div className="w-16 h-16 bg-slate-900 rounded-2xl flex items-center justify-center mx-auto mb-6 shadow-lg transform rotate-3">
@@ -99,6 +105,7 @@ export default function Auth() {
           </div>
         </div>
       </div>
+    </div>
     </div>
   );
 }

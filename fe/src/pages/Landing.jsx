@@ -31,23 +31,22 @@ export default function Landing() {
           <div className="absolute w-72 h-72 bg-amber-100 rounded-full blur-3xl opacity-50 top-10 right-10"></div>
           <div className="absolute w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 bottom-0 left-10"></div>
           
-          <div className="relative z-10 flex items-end gap-4">
-            <div className="animate-bounce-slow" style={{ animationDuration: '3s' }}>
-              <div className="drop-shadow-2xl">
-                <img src="/assets/pak_rt_modern.jpg" alt="Pak RT" className="w-[180px] h-[180px] rounded-3xl object-cover border-4 border-white shadow-xl" />
-              </div>
-              <div className="bg-white px-4 py-2 rounded-xl shadow-lg border border-slate-100 absolute -top-8 -right-12 rotate-6">
-                <div className="text-2xl">⚡ 95</div>
-              </div>
-            </div>
-            <div className="pb-12 animate-bounce-slow" style={{ animationDuration: '4s', animationDelay: '1s' }}>
-              <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100 mb-4 ml-4">
-                <div className="text-sm font-bold text-slate-800">Lampu Jalan Mati 💡</div>
-              </div>
-              <div className="drop-shadow-xl transform -scale-x-100">
-                <img src="/assets/warga_penasaran.jpg" alt="Warga" className="w-[120px] h-[120px] rounded-3xl object-cover border-4 border-white shadow-xl" />
-              </div>
-            </div>
+          <div className="relative z-10 animate-bounce-slow" style={{ animationDuration: '4s' }}>
+             <div className="drop-shadow-2xl relative">
+                <img src="/assets/hero_gabungan.jpg" alt="Ilustrasi SITARA" className="w-[320px] h-[320px] lg:w-[400px] lg:h-[400px] rounded-[3rem] object-cover border-4 border-white shadow-2xl" />
+                
+                {/* Floating Badges */}
+                <div className="bg-white px-4 py-2 rounded-xl shadow-lg border border-slate-100 absolute top-8 -right-6 rotate-6 animate-pulse">
+                  <div className="text-lg font-black text-slate-800">⚡ Prioritas Cepat</div>
+                </div>
+                
+                <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100 absolute bottom-12 -left-8 -rotate-3 hover:scale-105 transition-transform">
+                  <div className="text-sm font-bold text-slate-800 flex items-center gap-2">
+                    <span className="bg-amber-100 text-amber-700 px-2 py-1 rounded-md text-xs">Baru</span> 
+                    Lampu Jalan Mati 💡
+                  </div>
+                </div>
+             </div>
           </div>
         </div>
       </section>

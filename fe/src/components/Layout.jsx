@@ -1,10 +1,11 @@
 import React from 'react';
-import { Outlet, Link, useNavigate } from 'react-router-dom';
+import { Outlet, Link, useNavigate, useLocation } from 'react-router-dom';
 import { supabase } from '../lib/supabase';
 import { LogOut, MapPin, UserCircle } from 'lucide-react';
 
 export default function Layout() {
   const navigate = useNavigate();
+  const location = useLocation();
   const userRole = localStorage.getItem('role');
   const userName = localStorage.getItem('name');
   const userRt = localStorage.getItem('rt');
@@ -16,6 +17,8 @@ export default function Layout() {
     localStorage.clear();
     navigate('/');
   };
+
+  const isLandingPage = location.pathname === '/';
 
   return (
     <div className="min-h-screen flex flex-col bg-slate-50 font-sans">
@@ -63,11 +66,14 @@ export default function Layout() {
       <main className="flex-1 w-full max-w-6xl mx-auto px-4 py-6 sm:py-8">
         <Outlet />
       </main>
-      <footer className="bg-white border-t border-slate-200 py-4 sm:py-6 mt-auto">
-        <div className="max-w-6xl mx-auto px-4 text-center text-xs sm:text-sm text-slate-500">
-          &copy; {new Date().getFullYear()} SITARA — Sistem Prioritas Pengaduan RT Berbasis AI.
-        </div>
-      </footer>
+      
+      {isLandingPage && (
+        <footer className="bg-white border-t border-slate-200 py-4 sm:py-6 mt-auto">
+          <div className="max-w-6xl mx-auto px-4 text-center text-xs sm:text-sm text-slate-500">
+            &copy; {new Date().getFullYear()} SITARA — Sistem Prioritas Pengaduan RT Berbasis AI.
+          </div>
+        </footer>
+      )}
     </div>
   );
 }
