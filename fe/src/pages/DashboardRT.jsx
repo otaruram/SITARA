@@ -161,13 +161,23 @@ export default function DashboardRT() {
                       <div className="text-xs text-slate-400 font-bold mb-2">
                         🧑🏽‍🦱 {report.user?.name || 'Warga'} • {new Date(report.createdAt).toLocaleDateString('id-ID', {day: 'numeric', month: 'short'})}
                       </div>
-                      {report.attachment && (
-                        <div className="flex flex-wrap gap-2 mt-2">
+                      <div className="flex flex-wrap gap-2 mt-2">
+                        {report.whatsapp && (
+                           <a href={`https://wa.me/${report.whatsapp.replace(/[^0-9]/g, '').replace(/^0/, '62')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-green-700 font-bold bg-green-50 px-3 py-1.5 rounded-lg w-fit hover:bg-green-100 transition-colors border border-green-200">
+                             💬 WA
+                           </a>
+                        )}
+                        {report.latitude && report.longitude && (
+                           <a href={`https://www.google.com/maps?q=${report.latitude},${report.longitude}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-blue-700 font-bold bg-blue-50 px-3 py-1.5 rounded-lg w-fit hover:bg-blue-100 transition-colors border border-blue-200">
+                             📍 Peta
+                           </a>
+                        )}
+                        {report.attachment && (
                           <a href={report.attachment} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-slate-700 font-bold bg-slate-100 px-3 py-1.5 rounded-lg w-fit hover:bg-slate-200 transition-colors border border-slate-200">
-                            <Paperclip className="w-3.5 h-3.5" /> Lihat Bukti
+                            <Paperclip className="w-3.5 h-3.5" /> Gambar
                           </a>
-                        </div>
-                      )}
+                        )}
+                      </div>
                     </td>
                     
                     <td className="px-6 py-6">
@@ -268,13 +278,23 @@ export default function DashboardRT() {
                   <span className="leading-snug">{report.aiReason || 'Tidak ada analisis AI'}</span>
                 </div>
 
-                {report.attachment && (
-                  <div className="flex flex-wrap gap-2 mt-1">
+                <div className="flex flex-wrap gap-2 mt-1">
+                  {report.whatsapp && (
+                     <a href={`https://wa.me/${report.whatsapp.replace(/[^0-9]/g, '').replace(/^0/, '62')}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-green-700 font-bold bg-green-50 border border-green-200 px-3 py-1.5 rounded-lg">
+                       💬 WA Warga
+                     </a>
+                  )}
+                  {report.latitude && report.longitude && (
+                     <a href={`https://www.google.com/maps?q=${report.latitude},${report.longitude}`} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-blue-700 font-bold bg-blue-50 border border-blue-200 px-3 py-1.5 rounded-lg">
+                       📍 Buka Lokasi
+                     </a>
+                  )}
+                  {report.attachment && (
                     <a href={report.attachment} target="_blank" rel="noopener noreferrer" className="flex items-center gap-1.5 text-xs text-slate-700 font-bold bg-slate-100 border border-slate-200 px-3 py-1.5 rounded-lg">
-                      <Paperclip className="w-3.5 h-3.5" /> Lihat Bukti Gambar
+                      <Paperclip className="w-3.5 h-3.5" /> Lihat Gambar
                     </a>
-                  </div>
-                )}
+                  )}
+                </div>
 
                 <div className="grid grid-cols-2 gap-3 mt-2 pt-4 border-t-2 border-slate-100/50">
                   {report.status === 'PENDING' && (

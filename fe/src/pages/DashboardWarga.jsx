@@ -10,6 +10,12 @@ export default function DashboardWarga() {
   const [desc, setDesc] = useState('');
   const [file, setFile] = useState(null);
   
+  const [whatsapp, setWhatsapp] = useState('');
+  const [latitude, setLatitude] = useState(null);
+  const [longitude, setLongitude] = useState(null);
+  const [locationName, setLocationName] = useState('');
+  const [gettingLocation, setGettingLocation] = useState(false);
+  
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState('');
 
@@ -35,6 +41,34 @@ export default function DashboardWarga() {
     fetchMyComplaints();
   }, []);
 
+  const handleGetLocation = () => {
+    if (!navigator.geolocation) {
+      alert("Browser Anda tidak mendukung geolokasi.");
+      return;
+    }
+    setGettingLocation(true);
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+        setLatitude(lat);
+        setLongitude(lng);
+        try {
+          const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${lat}&lon=${lng}`);
+          const data = await res.json();
+          setLocationName(data.display_name || 'Lokasi berhasil didapatkan');
+        } catch (error) {
+          setLocationName(`${lat.toFixed(4)}, ${lng.toFixed(4)}`);
+        }
+        setGettingLocation(false);
+      },
+      (error) => {
+        alert("Gagal mendapatkan lokasi: " + error.message);
+        setGettingLocation(false);
+      }
+    );
+  };
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!title || !desc) return;
@@ -49,6 +83,9 @@ export default function DashboardWarga() {
       if (file) {
         formData.append('file', file);
       }
+      if (whatsapp) formData.append('whatsapp', whatsapp);
+      if (latitude) formData.append('latitude', latitude);
+      if (longitude) formData.append('longitude', longitude);
 
       const res = await fetch(`${import.meta.env.VITE_API_URL || "http://localhost:5000"}/api/complaints`, {
         method: 'POST',
@@ -64,6 +101,10 @@ export default function DashboardWarga() {
       setTitle('');
       setDesc('');
       setFile(null);
+      setWhatsapp('');
+      setLatitude(null);
+      setLongitude(null);
+      setLocationName('');
       setShowForm(false);
     } catch (err) {
       setError(err.message);
@@ -147,6 +188,40 @@ export default function DashboardWarga() {
                 required
               />
             </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="space-y-2">
+                <label className="block text-sm font-bold text-slate-700">Nomor WhatsApp (Opsional)</label>
+                <input 
+                  type="tel" 
+                  value={whatsapp}
+                  onChange={(e) => setWhatsapp(e.target.value)}
+                  className="w-full px-5 py-3 rounded-2xl border-2 border-slate-200 focus:outline-none focus:border-slate-900 transition-all font-medium"
+                  placeholder="Contoh: 081234567890"
+                />
+              </div>
+              
+              <div className="space-y-2">
+                <label className="block text-sm font-bold text-slate-700">Lokasi Kejadian (Opsional)</label>
+                <div className="flex flex-col gap-2">
+                  <button
+                    type="button"
+                    onClick={handleGetLocation}
+                    disabled={gettingLocation}
+                    className="w-full bg-slate-100 text-slate-700 px-4 py-3 rounded-2xl font-bold hover:bg-slate-200 transition-colors border-2 border-slate-200 flex items-center justify-center gap-2"
+                  >
+                    {gettingLocation ? <Loader2 className="w-5 h-5 animate-spin" /> : '📍'}
+                    {gettingLocation ? 'Mendapatkan...' : 'Bagikan Lokasi Saat Ini'}
+                  </button>
+                  {locationName && (
+                    <span className="text-xs text-slate-600 bg-slate-50 px-3 py-2 rounded-xl border border-slate-200 line-clamp-2">
+                      {locationName}
+                    </span>
+                  )}
+                </div>
+              </div>
+            </div>
+
             <div className="space-y-2">
               <label className="block text-sm font-bold text-slate-700">Deskripsi Detail</label>
               <textarea 

@@ -35,6 +35,9 @@ model Complaint {
   category    String?
   score       Int?
   aiReason    String?
+  whatsapp    String?  // Nomor WhatsApp pengirim
+  latitude    Float?   // Latitude lokasi
+  longitude   Float?   // Longitude lokasi
   status      String   @default("PENDING")
   userId      String
   user        User     @relation(fields: [userId], references: [id])

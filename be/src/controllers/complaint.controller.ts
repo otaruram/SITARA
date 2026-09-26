@@ -9,7 +9,10 @@ import { supabase } from '../config/supabase';
 // Validasi Zod untuk pembuatan laporan
 const complaintSchema = z.object({
   title: z.string().min(3, "Judul minimal 3 karakter"),
-  description: z.string().min(5, "Deskripsi minimal 5 karakter")
+  description: z.string().min(5, "Deskripsi minimal 5 karakter"),
+  whatsapp: z.string().optional(),
+  latitude: z.string().or(z.number()).optional(),
+  longitude: z.string().or(z.number()).optional()
 });
 
 export const submitComplaint = async (req: AuthRequest, res: Response): Promise<void> => {
@@ -31,7 +34,10 @@ export const submitComplaint = async (req: AuthRequest, res: Response): Promise<
       return;
     }
 
-    const { title, description } = validation.data;
+    const { title, description, whatsapp, latitude, longitude } = validation.data;
+    
+    const parsedLat = latitude ? parseFloat(String(latitude)) : null;
+    const parsedLng = longitude ? parseFloat(String(longitude)) : null;
 
     let attachmentUrl = null;
     if (req.file) {
@@ -70,6 +76,9 @@ export const submitComplaint = async (req: AuthRequest, res: Response): Promise<
         category: aiAnalysis.category,
         score: aiAnalysis.score,
         aiReason: aiAnalysis.reason,
+        whatsapp,
+        latitude: parsedLat,
+        longitude: parsedLng,
         userId: userId,
       }
     });
