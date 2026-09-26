@@ -54,7 +54,7 @@ Sistem ini dibangun dengan arsitektur terpisah (*decoupled architecture*) antara
 - **Otentikasi Pihak Ketiga (OAuth 2.0):** Mengurangi risiko pencurian kata sandi dengan mendelegasikan proses otentikasi kepada Google melalui Supabase.
 - **Role-Based Access Control (RBAC):** Proteksi *route* dan *endpoint API* di mana akses fungsi manipulasi laporan (*Update Status*) hanya diizinkan secara eksklusif untuk JWT (JSON Web Token) dengan peran `RT`.
 - **Sanitasi dan Validasi Data:** Seluruh *input* pengguna yang masuk ke *backend* divalidasi menggunakan *library* **Zod** untuk mencegah serangan *SQL Injection* dan memastikan integritas data (misalnya: validasi panjang karakter).
-- **Proteksi Media:** File yang diunggah diproses di dalam *memory storage* (buffer) sebelum dikirim ke Supabase, mencegah penyimpanan *malware* lokal di server Node.js.
+- **Arsitektur Stateless & Offloading Media:** File gambar yang diunggah diproses langsung melalui *memory storage* (buffer) dan secara asinkron dilempar (*offloaded*) ke *bucket* Supabase Storage. Desain ini menjaga server Node.js (backend) agar tetap *stateless* dan mencegah pembengkakan ruang penyimpanan (*storage bloat*) di server utama. Dengan mendelegasikan beban media ke layanan *cloud storage* khusus, server utama tetap ringan, hemat *resource*, dan aman dari risiko eksekusi *malware* lokal.
 
 ## 📚 Tinjauan Pustaka / Teknologi yang Digunakan (Tech Stack)
 
