@@ -28,8 +28,6 @@ export default function Landing() {
 
         {/* Hero Illustration (Simulated with Emojis & Clean CSS shapes) */}
         <div className="relative w-full h-[400px] flex items-center justify-center lg:justify-end">
-          <div className="absolute w-72 h-72 bg-amber-100 rounded-full blur-3xl opacity-50 top-10 right-10"></div>
-          <div className="absolute w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 bottom-0 left-10"></div>
           
           <div className="relative z-10">
              <div className="relative">
