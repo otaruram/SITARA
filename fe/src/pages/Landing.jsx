@@ -31,21 +31,9 @@ export default function Landing() {
           <div className="absolute w-72 h-72 bg-amber-100 rounded-full blur-3xl opacity-50 top-10 right-10"></div>
           <div className="absolute w-64 h-64 bg-blue-100 rounded-full blur-3xl opacity-50 bottom-0 left-10"></div>
           
-          <div className="relative z-10 animate-bounce-slow" style={{ animationDuration: '4s' }}>
+          <div className="relative z-10">
              <div className="relative">
                 <img src="/assets/hero_gabungan.jpg" alt="Ilustrasi SITARA" className="w-[320px] h-[320px] lg:w-[400px] lg:h-[400px] object-contain mix-blend-multiply" />
-                
-                {/* Floating Badges */}
-                <div className="bg-white px-4 py-2 rounded-xl shadow-lg border border-slate-100 absolute top-8 -right-6 rotate-6 animate-pulse z-10">
-                  <div className="text-lg font-black text-slate-800">⚡ Prioritas Cepat</div>
-                </div>
-                
-                <div className="bg-white p-3 rounded-2xl shadow-xl border border-slate-100 absolute bottom-12 -left-8 -rotate-3 hover:scale-105 transition-transform">
-                  <div className="text-sm font-bold text-slate-800 flex items-center gap-2">
-                    <span className="bg-amber-100 text-amber-700 px-2 py-1 rounded-md text-xs">Baru</span> 
-                    Lampu Jalan Mati 💡
-                  </div>
-                </div>
              </div>
           </div>
         </div>
