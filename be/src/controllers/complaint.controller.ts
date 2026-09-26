@@ -162,7 +162,7 @@ export const deleteComplaint = async (req: AuthRequest, res: Response): Promise<
     }
 
     const complaint = await prisma.complaint.findUnique({
-      where: { id }
+      where: { id: String(id) }
     });
 
     if (!complaint) {
@@ -181,7 +181,7 @@ export const deleteComplaint = async (req: AuthRequest, res: Response): Promise<
     }
 
     await prisma.complaint.delete({
-      where: { id }
+      where: { id: String(id) }
     });
 
     res.json({ message: "Laporan berhasil dibatalkan" });
