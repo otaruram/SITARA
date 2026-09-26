@@ -23,55 +23,53 @@ Sitara menggunakan model bisnis **Freemium (B2B SaaS Pricing)** yang ditargetkan
   - Notifikasi darurat dan fitur ekspor laporan
   - Dukungan teknis prioritas
 
-## 🔄 Alur Proses (Process Flow)
+## 🔄 Metodologi & Cara Kerja Sistem (System Workflow)
 
-### 1. Registrasi & Autentikasi
-- Pengguna (baik RT maupun Warga) login menggunakan **Google OAuth** melalui Supabase.
-- Saat pertama kali login, pengguna akan diarahkan ke halaman **Lengkapi Profil**.
-- Jika mendaftar sebagai **RT**, mereka wajib memasukkan detail wilayah (No. RT, RW, Kelurahan, Kecamatan).
-- Jika mendaftar sebagai **Warga**, mereka akan memilih wilayah RT yang sudah terdaftar di sistem.
-- Setelah profil disimpan, *role* akan terkunci dan pengguna diarahkan ke dashboard masing-masing.
+Sistem ini dibangun dengan arsitektur terpisah (*decoupled architecture*) antara Client-side dan Server-side. Berikut adalah metodologi dan alur kerja sistem secara keseluruhan:
 
-### 2. Alur Pelaporan (Warga)
-- Warga login dan masuk ke **Dashboard Warga**.
-- Warga mengisi formulir pengaduan (Judul, Deskripsi) dan dapat melampirkan maksimal 1 gambar bukti.
-- Laporan dikirim, dan gambar diunggah langsung ke **Supabase Storage**.
-- Warga dapat membatalkan laporan (menghapusnya) selama statusnya masih **PENDING**.
+### 1. Registrasi & Autentikasi (Keamanan Akses)
+- Pengguna (RT/Warga) melakukan autentikasi menggunakan standar **OAuth 2.0 (Google Login)** melalui layanan Supabase Auth.
+- Sistem memisahkan peran (*Role-Based Access Control*) di mana profil pengguna diklasifikasikan menjadi **RT** (Rukun Tetangga) dan **Warga**.
+- RT harus mendaftarkan detail wilayah administrasinya, sedangkan warga harus menautkan akunnya pada wilayah RT yang telah terdaftar.
 
-### 3. Pemrosesan AI (Backend)
-- Backend menerima teks laporan dan mengirimkannya ke API **Sumopod AI (LLM)**.
-- Sistem **Redis** digunakan sebagai *cache*. Jika laporan yang sama persis pernah dianalisis, AI tidak akan dipanggil ulang (menghemat *cost* dan waktu).
-- AI mengembalikan **Kategori**, **Skor Prioritas (0-100)**, dan **Alasan Analisis**.
-- Data disimpan ke dalam database PostgreSQL.
+### 2. Metodologi Pengumpulan Data Laporan
+- Warga mengirimkan *input* berupa teks (Judul dan Deskripsi Laporan) beserta lampiran bukti visual (Gambar).
+- File gambar diunggah (*uploaded*) secara asinkron ke *cloud storage* (Supabase Storage), sedangkan representasi teks dan URL gambar diteruskan ke REST API Backend.
+- Pengguna (Warga) diberikan kontrol penuh untuk membatalkan (menghapus) laporan selama status laporan masih berada dalam tahap antrean (*PENDING*).
 
-### 4. Penanganan (Pengurus RT)
-- Pengurus RT login dan melihat **Dashboard RT**.
-- Dashboard akan menampilkan semua laporan warga di wilayahnya, **diurutkan secara otomatis dari skor AI tertinggi** (Paling Darurat).
-- Laporan dengan skor tinggi (>= 70) dan berstatus PENDING akan ditandai dengan warna merah (Darurat).
-- RT dapat mengubah status laporan menjadi **DIPROSES** lalu **SELESAI**.
-- Status terbaru akan otomatis terlihat oleh Warga di dashboard mereka.
+### 3. Pemrosesan Data Menggunakan Artificial Intelligence (AI)
+- Data teks yang dikirim warga akan diproses oleh antarmuka AI berbasis *Large Language Model (LLM)* dari **Sumopod**.
+- **Mekanisme Caching:** Untuk mencegah pemanggilan AI berulang pada input teks yang identik (menghindari beban *latency* dan limitasi API), sistem memanfaatkan **Redis** sebagai penyimpanan *cache* sementara.
+- **Output AI:** Model kecerdasan buatan akan melakukan tiga tugas utama (*Natural Language Processing*):
+  1. Klasifikasi Kategori Laporan (misal: Keamanan, Infrastruktur, Kebersihan).
+  2. Penentuan Skor Skala Prioritas/Kedawatdaruratan (0-100).
+  3. Generasi Alasan Logis (*Reasoning*) atas penentuan skor tersebut.
 
-## 💻 Tech Stack & Arsitektur Teknikal
+### 4. Tindak Lanjut oleh Pengurus RT
+- Data yang telah diperkaya (*enriched data*) oleh AI akan disimpan ke *Relational Database* (PostgreSQL).
+- Pengurus RT menerima visualisasi antrean laporan yang telah disortir secara otomatis (Algoritma Sorting *Descending*) berdasarkan Skor Prioritas AI tertinggi.
+- RT dapat mengubah *state* laporan (*PENDING* -> *DIPROSES* -> *SELESAI*). Perubahan status ini langsung terhubung dengan antarmuka Warga secara *real-time* atau saat halaman dimuat ulang.
 
-Sistem ini memisahkan antara *Frontend* dan *Backend* secara komplit (Micro-architecture) agar siap skalabilitas tinggi.
+## 📚 Tinjauan Pustaka / Teknologi yang Digunakan (Tech Stack)
 
-### Frontend (Client-side)
-- **Framework:** React.js dengan Vite (Super fast build)
-- **Styling:** Vanilla CSS & Tailwind CSS (Utility-first)
-- **Icons:** Lucide React
-- **Routing:** React Router v6
-- **Deployment Target:** Vercel
+Sistem ini dikembangkan menggunakan tumpukan teknologi (*Tech Stack*) modern berbasis JavaScript/TypeScript yang populer dalam rekayasa perangkat lunak saat ini:
 
-### Backend (Server-side)
-- **Environment:** Node.js & Express.js
-- **Language:** TypeScript
-- **Database:** PostgreSQL
-- **ORM:** Prisma
-- **Caching:** Redis (Untuk *caching* hasil AI LLM & optimasi performa)
-- **Authentication:** Supabase Auth (Google OAuth)
-- **File Storage:** Supabase Storage (Bucket `SIRITA`)
-- **AI Integration:** Sumopod AI (OpenAI Compatible Endpoint)
-- **Deployment Target:** Render
+### 1. Frontend (Antarmuka Pengguna)
+- **React.js & Vite:** *Library* utama untuk membangun antarmuka web yang reaktif (*Single Page Application*). Vite digunakan sebagai *build tool* karena kecepatan kompilasinya yang tinggi.
+- **Tailwind CSS:** *Framework* CSS berbasis *utility-first* untuk mempercepat proses penataan gaya (*styling*) antarmuka secara responsif.
+- **React Router v6:** Digunakan untuk manajemen navigasi halaman (*routing*) tanpa perlu memuat ulang keseluruhan dokumen (*page reload*).
+
+### 2. Backend (Layanan Server & API)
+- **Node.js & Express.js:** Lingkungan *runtime* dan *framework* server untuk membangun arsitektur REST API yang menjembatani komunikasi data antara klien dan *database*.
+- **TypeScript:** Superset dari JavaScript yang menambahkan fitur *Static Typing* untuk meminimalisir *bug* dan kesalahan logika saat fase pengembangan.
+- **Prisma ORM:** *Object-Relational Mapping* yang digunakan untuk menjembatani komunikasi ke *database* SQL dengan pendekatan yang lebih aman terhadap tipe data (*type-safe*).
+
+### 3. Infrastruktur & Layanan Pihak Ketiga
+- **PostgreSQL:** Sistem manajemen basis data relasional (RDBMS) utama untuk menyimpan entitas Pengguna dan Laporan.
+- **Redis:** Penyimpanan struktur data *in-memory* yang difungsikan sebagai sistem *caching* respons AI.
+- **Supabase:** Penyedia layanan *Backend-as-a-Service* (BaaS) yang digunakan untuk dua fungsi krusial: Autentikasi Pengguna (Google OAuth) dan Penyimpanan Berkas (*Object Storage*).
+- **Sumopod AI:** Layanan *Large Language Model* eksternal yang diintegrasikan melalui antarmuka kompatibel (OpenAI API Compatible) untuk melakukan pemrosesan teks tingkat lanjut.
+- **Deployment Server:** Aplikasi ini disebarluaskan (*deployed*) menggunakan arsitektur *Cloud*, di mana Frontend di-*host* pada **Vercel** dan Backend pada **Render**.
 
 ## 🚀 Cara Menjalankan Secara Lokal
 
