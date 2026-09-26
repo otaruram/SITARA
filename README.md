@@ -37,18 +37,24 @@ Sistem ini dibangun dengan arsitektur terpisah (*decoupled architecture*) antara
 - File gambar diunggah (*uploaded*) secara asinkron ke *cloud storage* (Supabase Storage), sedangkan representasi teks dan URL gambar diteruskan ke REST API Backend.
 - Pengguna (Warga) diberikan kontrol penuh untuk membatalkan (menghapus) laporan selama status laporan masih berada dalam tahap antrean (*PENDING*).
 
-### 3. Pemrosesan Data Menggunakan Artificial Intelligence (AI)
-- Data teks yang dikirim warga akan diproses oleh antarmuka AI berbasis *Large Language Model (LLM)* dari **Sumopod**.
-- **Mekanisme Caching:** Untuk mencegah pemanggilan AI berulang pada input teks yang identik (menghindari beban *latency* dan limitasi API), sistem memanfaatkan **Redis** sebagai penyimpanan *cache* sementara.
-- **Output AI:** Model kecerdasan buatan akan melakukan tiga tugas utama (*Natural Language Processing*):
-  1. Klasifikasi Kategori Laporan (misal: Keamanan, Infrastruktur, Kebersihan).
-  2. Penentuan Skor Skala Prioritas/Kedawatdaruratan (0-100).
-  3. Generasi Alasan Logis (*Reasoning*) atas penentuan skor tersebut.
+### 3. Pemrosesan Bahasa Alami (NLP) Menggunakan LLM
+- Data teks deskriptif yang dikirim warga dikirim ke antarmuka AI berbasis *Large Language Model (LLM)* dari **Sumopod**.
+- **Mekanisme NLP & Penentuan Urgentitas:** LLM diinstruksikan melalui *Prompt Engineering* khusus untuk bertindak sebagai analis sistem tanggap darurat. LLM mengekstrak semantik dari teks untuk mendeteksi kata kunci, konteks ancaman, dan skala dampak.
+  - **Skor (0-100):** Sistem menghitung skor berdasarkan matriks risiko. Kasus yang mengancam nyawa, kerusakan infrastruktur berat (misal: kebakaran, kabel listrik putus) akan diberikan skor >80. Masalah administratif atau estetika (misal: rumput panjang) diberikan skor <40.
+  - **Kategorisasi:** LLM menggunakan pemahaman konteks untuk mengelompokkan laporan ke dalam label statis (Infrastruktur, Keamanan, Lingkungan, dll).
+  - **Reasoning:** Model diwajibkan memberikan alasan deduktif singkat mengapa skor tersebut diberikan, sehingga keputusan AI dapat diaudit (*Explainable AI*).
+- **Mekanisme Caching:** Untuk efisiensi biaya dan *latency*, sistem memanfaatkan **Redis** sebagai memori *cache*. Jika laporan yang sama persis masuk kembali, AI tidak dipanggil ulang.
 
 ### 4. Tindak Lanjut oleh Pengurus RT
 - Data yang telah diperkaya (*enriched data*) oleh AI akan disimpan ke *Relational Database* (PostgreSQL).
 - Pengurus RT menerima visualisasi antrean laporan yang telah disortir secara otomatis (Algoritma Sorting *Descending*) berdasarkan Skor Prioritas AI tertinggi.
 - RT dapat mengubah *state* laporan (*PENDING* -> *DIPROSES* -> *SELESAI*). Perubahan status ini langsung terhubung dengan antarmuka Warga secara *real-time* atau saat halaman dimuat ulang.
+
+### 5. Sistem Keamanan & Privasi Data (Security)
+- **Otentikasi Pihak Ketiga (OAuth 2.0):** Mengurangi risiko pencurian kata sandi dengan mendelegasikan proses otentikasi kepada Google melalui Supabase.
+- **Role-Based Access Control (RBAC):** Proteksi *route* dan *endpoint API* di mana akses fungsi manipulasi laporan (*Update Status*) hanya diizinkan secara eksklusif untuk JWT (JSON Web Token) dengan peran `RT`.
+- **Sanitasi dan Validasi Data:** Seluruh *input* pengguna yang masuk ke *backend* divalidasi menggunakan *library* **Zod** untuk mencegah serangan *SQL Injection* dan memastikan integritas data (misalnya: validasi panjang karakter).
+- **Proteksi Media:** File yang diunggah diproses di dalam *memory storage* (buffer) sebelum dikirim ke Supabase, mencegah penyimpanan *malware* lokal di server Node.js.
 
 ## 📚 Tinjauan Pustaka / Teknologi yang Digunakan (Tech Stack)
 
