@@ -9,6 +9,7 @@ export default function Profile() {
   const userRw = localStorage.getItem('rw') || '-';
   const userKelurahan = localStorage.getItem('kelurahan') || '-';
   const userKecamatan = localStorage.getItem('kecamatan') || '-';
+  const userKota = localStorage.getItem('kota') || 'KOTA BOGOR';
 
   return (
     <div className="max-w-3xl mx-auto space-y-8 animate-in fade-in duration-500 py-8">
@@ -56,7 +57,7 @@ export default function Profile() {
               <MapPin className="w-5 h-5 text-slate-400" />
               Data Wilayah
             </h3>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
                 <div className="text-xs text-slate-500 font-medium mb-1">Nomor RT</div>
                 <div className="font-bold text-slate-900">{userRt}</div>
@@ -72,6 +73,10 @@ export default function Profile() {
               <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
                 <div className="text-xs text-slate-500 font-medium mb-1">Kecamatan</div>
                 <div className="font-bold text-slate-900">{userKecamatan}</div>
+              </div>
+              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 col-span-2 sm:col-span-1">
+                <div className="text-xs text-slate-500 font-medium mb-1">Kota / Kab</div>
+                <div className="font-bold text-slate-900">{userKota}</div>
               </div>
             </div>
           </div>

@@ -36,6 +36,7 @@ export default function AuthCallback() {
           localStorage.setItem('rw', data.user.rw);
           localStorage.setItem('kelurahan', data.user.kelurahan);
           localStorage.setItem('kecamatan', data.user.kecamatan);
+          localStorage.setItem('kota', data.user.kota || 'KOTA BOGOR');
 
           if (data.user.role === 'RT') {
             navigate('/rt');

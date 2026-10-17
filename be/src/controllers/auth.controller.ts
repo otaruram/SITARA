@@ -42,6 +42,7 @@ export const checkProfile = async (req: AuthRequest, res: Response): Promise<voi
         rw: user.rw,
         kelurahan: user.kelurahan,
         kecamatan: user.kecamatan,
+        kota: user.kota || "KOTA BOGOR",
       }
     });
   } catch (error) {
@@ -61,7 +62,7 @@ export const completeProfile = async (req: AuthRequest, res: Response): Promise<
       return;
     }
 
-    const { name, role, rt, rw, kelurahan, kecamatan } = req.body;
+    const { name, role, rt, rw, kelurahan, kecamatan, kota } = req.body;
 
     if (!name || !role || !rt || !rw || !kelurahan || !kecamatan) {
       res.status(400).json({ message: "Semua data wajib diisi (nama, role, rt, rw, kelurahan, kecamatan)." });
@@ -94,6 +95,8 @@ export const completeProfile = async (req: AuthRequest, res: Response): Promise<
       return;
     }
 
+    const userKota = kota ? String(kota).trim().toUpperCase() : "KOTA BOGOR";
+
     // Buat profil baru (karena belum ada di database kita)
     const user = await prisma.user.create({
       data: {
@@ -105,6 +108,7 @@ export const completeProfile = async (req: AuthRequest, res: Response): Promise<
         rw,
         kelurahan,
         kecamatan,
+        kota: userKota,
       }
     });
 
@@ -130,8 +134,9 @@ export const getLocations = async (req: Request, res: Response): Promise<void> =
         rw: true,
         kelurahan: true,
         kecamatan: true,
+        kota: true,
       },
-      distinct: ['rt', 'rw', 'kelurahan', 'kecamatan'],
+      distinct: ['rt', 'rw', 'kelurahan', 'kecamatan', 'kota'],
     });
 
     res.json({ data: rtUsers });

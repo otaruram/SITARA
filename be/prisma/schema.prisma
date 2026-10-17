@@ -22,6 +22,7 @@ model User {
   rw         String      // Nomor RW, contoh: "003"
   kelurahan  String      // Nama Kelurahan
   kecamatan  String      // Nama Kecamatan
+  kota       String?     @default("KOTA BOGOR") // Nama Kota / Kabupaten
   createdAt  DateTime    @default(now())
   updatedAt  DateTime    @updatedAt
   Complaint  Complaint[]

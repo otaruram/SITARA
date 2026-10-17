@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { AlertTriangle, CheckCircle, ListTodo, BrainCircuit, Paperclip, Loader2 } from 'lucide-react';
+import { AlertTriangle, CheckCircle, ListTodo, BrainCircuit, Paperclip, Loader2, FileSpreadsheet, Download, RefreshCw } from 'lucide-react';
+import * as XLSX from 'xlsx';
 
 export default function DashboardRT() {
   const [reports, setReports] = useState([]);
@@ -47,6 +48,90 @@ export default function DashboardRT() {
     }
   };
 
+  // Fungsi Export / Unduh Excel untuk Pengurus RT
+  const downloadExcel = () => {
+    if (!reports || reports.length === 0) {
+      const confirmDummy = window.confirm(
+        "Belum ada laporan warga yang masuk di database wilayah ini. Apakah Anda ingin mengunduh berkas 100 Data Dummy Standar Proposal STSI4401 (.xlsx)?"
+      );
+      if (confirmDummy) {
+        window.location.href = "/Dataset_Dummy_Pengaduan_SITARA_100_Data.xlsx";
+      }
+      return;
+    }
+
+    const userRt = localStorage.getItem('rt') || '005';
+    const userRw = localStorage.getItem('rw') || '007';
+    const userKel = localStorage.getItem('kelurahan') || 'Kebon Kelapa';
+    const userKec = localStorage.getItem('kecamatan') || 'Bogor Tengah';
+    const userKota = localStorage.getItem('kota') || 'KOTA BOGOR';
+
+    const excelRows = reports.map((r, idx) => {
+      const score = r.score || 0;
+      let prioritas = "Rendah";
+      if (score >= 80) prioritas = "Tinggi";
+      else if (score >= 40) prioritas = "Sedang";
+
+      const d = r.createdAt ? new Date(r.createdAt) : new Date();
+      const tgl = d.toLocaleDateString('id-ID', { year: 'numeric', month: '2-digit', day: '2-digit' });
+      const jam = d.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' });
+
+      return {
+        "No": idx + 1,
+        "ID Laporan": r.id,
+        "Tanggal": tgl,
+        "Waktu": jam,
+        "Nama Pelapor": r.user?.name || "Warga",
+        "Nomor WhatsApp": r.whatsapp || "-",
+        "Email Pelapor": r.user?.email || "-",
+        "RT": `RT ${r.user?.rt || userRt}`,
+        "RW": `RW ${r.user?.rw || userRw}`,
+        "Kelurahan": userKel,
+        "Kecamatan": userKec,
+        "Kota/Kabupaten": userKota,
+        "Judul Laporan": r.title || "-",
+        "Isi Pengaduan": r.description || "-",
+        "Kategori (AI)": r.category || "Uncategorized",
+        "Skor Prioritas (0-100)": score,
+        "Tingkat Prioritas": prioritas,
+        "Alasan AI (Reasoning)": r.aiReason || "-",
+        "Status Laporan": r.status || "PENDING",
+        "Tautan Lampiran": r.attachment || "-"
+      };
+    });
+
+    const worksheet = XLSX.utils.json_to_sheet(excelRows);
+    worksheet['!cols'] = [
+      { wch: 6 },   // No
+      { wch: 38 },  // ID Laporan
+      { wch: 14 },  // Tanggal
+      { wch: 10 },  // Waktu
+      { wch: 22 },  // Nama Pelapor
+      { wch: 16 },  // WhatsApp
+      { wch: 26 },  // Email
+      { wch: 8 },   // RT
+      { wch: 8 },   // RW
+      { wch: 16 },  // Kelurahan
+      { wch: 16 },  // Kecamatan
+      { wch: 16 },  // Kota
+      { wch: 32 },  // Judul
+      { wch: 50 },  // Isi
+      { wch: 22 },  // Kategori
+      { wch: 16 },  // Skor
+      { wch: 16 },  // Prioritas
+      { wch: 45 },  // Reasoning
+      { wch: 16 },  // Status
+      { wch: 30 }   // Lampiran
+    ];
+
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, `Rekap RT ${userRt}`);
+
+    const dateStr = new Date().toISOString().slice(0, 10);
+    const fileName = `Rekap_Laporan_RT${userRt}_RW${userRw}_${userKel.replace(/\s+/g, '_')}_${dateStr}.xlsx`;
+    XLSX.writeFile(workbook, fileName);
+  };
+
   const totalReports = reports.length;
   const emergencyReports = reports.filter(r => (r.score || 0) >= 70 && r.status !== 'SELESAI').length;
   const completedReports = reports.filter(r => r.status === 'SELESAI').length;
@@ -72,11 +157,42 @@ export default function DashboardRT() {
             <img src="/assets/pak_rt_modern.jpg" alt="RT" className="w-14 h-14 rounded-full object-cover border-2 border-slate-200 shadow-sm" /> 
             Dashboard Pak RT
           </h1>
-          <p className="text-slate-500 font-medium mt-1">Daftar laporan warga telah diurutkan berdasarkan skala prioritas AI.</p>
+          <p className="text-slate-500 font-medium mt-1">
+            Daftar laporan warga wilayah RT {localStorage.getItem('rt') || '005'} / RW {localStorage.getItem('rw') || '007'}, {localStorage.getItem('kelurahan') || 'Kebon Kelapa'}, {localStorage.getItem('kota') || 'KOTA BOGOR'}.
+          </p>
         </div>
-        <button onClick={fetchComplaints} className="text-sm font-bold bg-white border-2 border-slate-200 text-slate-700 px-6 py-3 rounded-full hover:bg-slate-50 transition-all shadow-sm hover:shadow-md active:scale-95">
-          Refresh Data 🔄
-        </button>
+
+        {/* Action Buttons: Download Excel & Refresh */}
+        <div className="flex flex-wrap items-center gap-2.5">
+          <button 
+            onClick={downloadExcel} 
+            className="flex items-center gap-2 text-xs sm:text-sm font-bold bg-emerald-600 hover:bg-emerald-700 text-white px-5 py-3 rounded-full transition-all shadow-sm hover:shadow-md active:scale-95 cursor-pointer"
+            title="Unduh rekap Excel (.xlsx) dari laporan warga di wilayah ini"
+          >
+            <FileSpreadsheet className="w-4 h-4" />
+            <span>Unduh Excel (.xlsx)</span>
+          </button>
+
+          <a 
+            href="/Dataset_Dummy_Pengaduan_SITARA_100_Data.xlsx" 
+            download="Dataset_Dummy_Pengaduan_SITARA_100_Data.xlsx"
+            className="flex items-center gap-2 text-xs sm:text-sm font-bold bg-slate-900 hover:bg-slate-800 text-white px-5 py-3 rounded-full transition-all shadow-sm hover:shadow-md active:scale-95 cursor-pointer"
+            title="Unduh berkas 100 Data Dummy Standar SP4N untuk Proposal Capstone"
+          >
+            <Download className="w-4 h-4" />
+            <span className="hidden sm:inline">100 Data Proposal</span>
+            <span className="sm:hidden">100 Data</span>
+          </a>
+
+          <button 
+            onClick={fetchComplaints} 
+            className="flex items-center gap-1.5 text-xs sm:text-sm font-bold bg-white border-2 border-slate-200 text-slate-700 px-4 py-3 rounded-full hover:bg-slate-50 transition-all shadow-sm hover:shadow-md active:scale-95 cursor-pointer"
+            title="Muat ulang data terbaru"
+          >
+            <RefreshCw className="w-4 h-4" />
+            <span>Refresh</span>
+          </button>
+        </div>
       </div>
 
       {/* Stats - Redesigned to Bubble Cards */}

@@ -12,6 +12,7 @@ export default function CompleteProfile() {
   const [rw, setRw] = useState('');
   const [kelurahan, setKelurahan] = useState('');
   const [kecamatan, setKecamatan] = useState('');
+  const [kota, setKota] = useState('KOTA BOGOR');
   
   // Untuk dropdown Warga
   const [locations, setLocations] = useState([]);
@@ -45,9 +46,10 @@ export default function CompleteProfile() {
         setRw(loc.rw);
         setKelurahan(loc.kelurahan);
         setKecamatan(loc.kecamatan);
+        setKota(loc.kota || 'KOTA BOGOR');
       }
     } else {
-      setRt(''); setRw(''); setKelurahan(''); setKecamatan('');
+      setRt(''); setRw(''); setKelurahan(''); setKecamatan(''); setKota('KOTA BOGOR');
     }
   };
 
@@ -59,8 +61,8 @@ export default function CompleteProfile() {
       setError('Silakan pilih peran Anda terlebih dahulu.');
       return;
     }
-    if (!rt || !rw || !kelurahan || !kecamatan) {
-      setError('Semua data wilayah wajib diisi.');
+    if (!rt || !rw || !kelurahan || !kecamatan || !kota) {
+      setError('Semua data wilayah (RT, RW, Kelurahan, Kecamatan, Kota) wajib diisi.');
       return;
     }
 
@@ -73,7 +75,7 @@ export default function CompleteProfile() {
           'Content-Type': 'application/json',
           'Authorization': `Bearer ${token}`,
         },
-        body: JSON.stringify({ name, role, rt, rw, kelurahan, kecamatan }),
+        body: JSON.stringify({ name, role, rt, rw, kelurahan, kecamatan, kota }),
       });
       
       const data = await res.json();
@@ -86,6 +88,7 @@ export default function CompleteProfile() {
       localStorage.setItem('rw', data.user.rw);
       localStorage.setItem('kelurahan', data.user.kelurahan);
       localStorage.setItem('kecamatan', data.user.kecamatan);
+      localStorage.setItem('kota', data.user.kota || kota);
 
       // Arahkan ke dashboard
       if (data.user.role === 'RT') {
@@ -116,7 +119,7 @@ export default function CompleteProfile() {
           <div className="grid grid-cols-2 gap-3 mb-6">
             <button
               type="button"
-              onClick={() => { setRole('WARGA'); setRt(''); setRw(''); setKelurahan(''); setKecamatan(''); setSelectedLocation(''); }}
+              onClick={() => { setRole('WARGA'); setRt(''); setRw(''); setKelurahan(''); setKecamatan(''); setKota('KOTA BOGOR'); setSelectedLocation(''); }}
               className={`flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all ${
                 role === 'WARGA' 
                   ? 'border-slate-900 bg-slate-50 text-slate-900 shadow-sm' 
@@ -130,7 +133,7 @@ export default function CompleteProfile() {
             
             <button
               type="button"
-              onClick={() => { setRole('RT'); setRt(''); setRw(''); setKelurahan(''); setKecamatan(''); setSelectedLocation(''); }}
+              onClick={() => { setRole('RT'); setRt(''); setRw(''); setKelurahan(''); setKecamatan(''); setKota('KOTA BOGOR'); setSelectedLocation(''); }}
               className={`flex flex-col items-center justify-center p-4 rounded-xl border-2 transition-all ${
                 role === 'RT' 
                   ? 'border-slate-900 bg-slate-50 text-slate-900 shadow-sm' 
@@ -176,7 +179,7 @@ export default function CompleteProfile() {
                         <option value="">-- Pilih Wilayah --</option>
                         {locations.map((loc, idx) => (
                           <option key={idx} value={idx}>
-                            RT {loc.rt} / RW {loc.rw} — Kel. {loc.kelurahan}, Kec. {loc.kecamatan}
+                            RT {loc.rt} / RW {loc.rw} — Kel. {loc.kelurahan}, Kec. {loc.kecamatan}{loc.kota ? `, ${loc.kota}` : ''}
                           </option>
                         ))}
                       </select>
@@ -189,7 +192,7 @@ export default function CompleteProfile() {
               {/* RT: Input manual wilayah */}
               {role === 'RT' && (
                 <div className="bg-slate-50 border border-slate-200 rounded-xl p-4 space-y-3">
-                  <p className="text-sm font-semibold text-slate-700">📍 Data Wilayah (Input Manual)</p>
+                  <p className="text-sm font-semibold text-slate-700">📍 Data Wilayah RT (Input Lengkap)</p>
                   <div className="grid grid-cols-2 gap-3">
                     <div className="space-y-1">
                       <label className="block text-xs font-medium text-slate-600">Nomor RT</label>
@@ -209,7 +212,7 @@ export default function CompleteProfile() {
                         value={rw}
                         onChange={(e) => setRw(e.target.value)}
                         className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all text-sm"
-                        placeholder="Contoh: 003"
+                        placeholder="Contoh: 007"
                         required
                       />
                     </div>
@@ -221,7 +224,7 @@ export default function CompleteProfile() {
                       value={kelurahan}
                       onChange={(e) => setKelurahan(e.target.value)}
                       className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all text-sm"
-                      placeholder="Nama Kelurahan"
+                      placeholder="Contoh: Kebon Kelapa"
                       required
                     />
                   </div>
@@ -232,7 +235,18 @@ export default function CompleteProfile() {
                       value={kecamatan}
                       onChange={(e) => setKecamatan(e.target.value)}
                       className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all text-sm"
-                      placeholder="Nama Kecamatan"
+                      placeholder="Contoh: Bogor Tengah"
+                      required
+                    />
+                  </div>
+                  <div className="space-y-1">
+                    <label className="block text-xs font-medium text-slate-600">Kota / Kabupaten</label>
+                    <input 
+                      type="text" 
+                      value={kota}
+                      onChange={(e) => setKota(e.target.value)}
+                      className="w-full px-3 py-2 rounded-lg border border-slate-300 focus:outline-none focus:ring-2 focus:ring-slate-900 transition-all text-sm"
+                      placeholder="Contoh: KOTA BOGOR"
                       required
                     />
                   </div>
