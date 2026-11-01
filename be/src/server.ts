@@ -19,9 +19,13 @@ app.use((req, res, next) => {
 // Routes
 app.use('/api', routes);
 
-// Health check
+// Health check endpoints (Lightweight ping targets for Render keep-alive)
 app.get('/health', (req, res) => {
-  res.status(200).json({ status: 'ok', message: 'SITARA Backend is running' });
+  res.status(200).json({ status: 'ok', uptime: process.uptime(), timestamp: new Date().toISOString() });
+});
+
+app.get('/api/health', (req, res) => {
+  res.status(200).json({ status: 'ok', uptime: process.uptime(), timestamp: new Date().toISOString() });
 });
 
 // Error handling middleware

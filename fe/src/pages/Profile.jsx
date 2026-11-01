@@ -1,8 +1,8 @@
 import React from 'react';
-import { UserCircle, MapPin, Mail, ShieldUser, User } from 'lucide-react';
+import { UserCheck, MapPin, Mail, ShieldAlert, Award } from 'lucide-react';
 
 export default function Profile() {
-  const userName = localStorage.getItem('name') || '-';
+  const userName = localStorage.getItem('name') || 'Warga';
   const userEmail = localStorage.getItem('email') || '-';
   const userRole = (localStorage.getItem('role') || '').toUpperCase();
   const userRt = localStorage.getItem('rt') || '-';
@@ -12,76 +12,91 @@ export default function Profile() {
   const userKota = localStorage.getItem('kota') || 'KOTA BOGOR';
 
   return (
-    <div className="max-w-3xl mx-auto space-y-8 animate-in fade-in duration-500 py-8">
-      <div>
-        <h1 className="text-3xl font-bold text-slate-900">Profil Saya</h1>
-        <p className="text-slate-500 mt-1">Informasi dasar akun Anda</p>
+    <div className="max-w-3xl mx-auto space-y-8 py-4 pb-16">
+      
+      {/* Title */}
+      <div className="space-y-1 border-b border-hairline pb-4">
+        <div className="font-mono-code text-xs text-orange-600 font-bold uppercase tracking-wider">
+          Administrasi Akun Wilayah
+        </div>
+        <h1 className="font-serif-display text-3xl sm:text-4xl text-[var(--text-primary)] font-normal">
+          Buku Registrasi Identitas
+        </h1>
+        <p className="text-xs text-[var(--text-muted)] font-mono-code">
+          Data kependudukan dan yurisdiksi pelaporan yang tertaut pada sistem SITARA.
+        </p>
       </div>
 
-      <div className="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
-        {/* Header Cover */}
-        <div className="h-32 bg-slate-900 w-full relative">
-          <div className="absolute -bottom-12 left-8">
-            <div className="w-24 h-24 bg-white rounded-full flex items-center justify-center border-4 border-white shadow-md overflow-hidden">
-              {userRole === 'RT' ? (
-                <img src="/assets/pak_rt_modern.jpg" alt="Profil RT" className="w-full h-full object-cover" />
-              ) : (
-                <img src="/assets/warga_penasaran.jpg" alt="Profil Warga" className="w-full h-full object-cover" />
-              )}
-            </div>
-          </div>
-        </div>
+      {/* Main Ledger Card */}
+      <div className="rounded border-2 border-hairline bg-[var(--bg-card)] shadow-md overflow-hidden">
         
-        {/* Info */}
-        <div className="pt-16 pb-8 px-8">
-          <div className="flex justify-between items-start">
-            <div>
-              <h2 className="text-2xl font-bold text-slate-900">{userName}</h2>
-              <div className="flex items-center gap-2 text-slate-500 mt-1">
-                <Mail className="w-4 h-4" />
-                <span>{userEmail}</span>
-              </div>
+        {/* Top Header Strip */}
+        <div className="bg-stone-900 text-stone-100 p-6 sm:p-8 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="space-y-1">
+            <div className="font-mono-code text-xs text-orange-400 font-bold uppercase tracking-wider">
+              {userRole === 'RT' ? 'PENGURUS RUKUN TETANGGA' : 'WARGA TERDAFTAR'}
             </div>
-            <div>
-              <span className={`inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full text-xs font-bold uppercase ${
-                userRole === 'RT' ? 'bg-slate-900 text-white' : 'bg-slate-100 text-slate-700'
-              }`}>
-                {userRole === 'RT' ? <ShieldUser className="w-4 h-4" /> : <User className="w-4 h-4" />}
-                {userRole}
-              </span>
+            <h2 className="font-serif-display text-3xl font-bold tracking-tight text-white">
+              {userName}
+            </h2>
+            <div className="flex items-center gap-2 text-stone-400 font-mono-code text-xs">
+              <Mail className="w-3.5 h-3.5" />
+              <span>{userEmail}</span>
             </div>
           </div>
 
-          <div className="mt-8 pt-8 border-t border-slate-100">
-            <h3 className="text-lg font-bold text-slate-900 mb-4 flex items-center gap-2">
-              <MapPin className="w-5 h-5 text-slate-400" />
-              Data Wilayah
+          <div className="inline-flex items-center gap-2 font-mono-code text-xs font-bold px-3 py-1.5 rounded border border-orange-500/40 bg-orange-500/10 text-orange-300">
+            <Award className="w-4 h-4 text-orange-400" />
+            <span>TERVERIFIKASI AKTIF</span>
+          </div>
+        </div>
+
+        {/* Data Wilayah Territory Grid */}
+        <div className="p-6 sm:p-8 space-y-6">
+          <div className="flex items-center justify-between border-b border-hairline pb-3">
+            <h3 className="font-mono-code text-xs font-bold uppercase tracking-wider text-[var(--text-primary)] flex items-center gap-2">
+              <MapPin className="w-4 h-4 text-orange-600" />
+              <span>Wilayah Yurisdiksi Administrasi:</span>
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3">
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                <div className="text-xs text-slate-500 font-medium mb-1">Nomor RT</div>
-                <div className="font-bold text-slate-900">{userRt}</div>
-              </div>
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                <div className="text-xs text-slate-500 font-medium mb-1">Nomor RW</div>
-                <div className="font-bold text-slate-900">{userRw}</div>
-              </div>
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                <div className="text-xs text-slate-500 font-medium mb-1">Kelurahan</div>
-                <div className="font-bold text-slate-900">{userKelurahan}</div>
-              </div>
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100">
-                <div className="text-xs text-slate-500 font-medium mb-1">Kecamatan</div>
-                <div className="font-bold text-slate-900">{userKecamatan}</div>
-              </div>
-              <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 col-span-2 sm:col-span-1">
-                <div className="text-xs text-slate-500 font-medium mb-1">Kota / Kab</div>
-                <div className="font-bold text-slate-900">{userKota}</div>
-              </div>
+            <span className="font-mono-code text-[11px] text-[var(--text-muted)]">SP4N Code Verified</span>
+          </div>
+
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-3 font-mono-code">
+            <div className="p-3.5 rounded border border-hairline bg-[var(--bg-surface)] space-y-1">
+              <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Rukun Tetangga</div>
+              <div className="text-base font-bold text-[var(--text-primary)]">RT {userRt}</div>
+            </div>
+
+            <div className="p-3.5 rounded border border-hairline bg-[var(--bg-surface)] space-y-1">
+              <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Rukun Warga</div>
+              <div className="text-base font-bold text-[var(--text-primary)]">RW {userRw}</div>
+            </div>
+
+            <div className="p-3.5 rounded border border-hairline bg-[var(--bg-surface)] space-y-1">
+              <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Kelurahan</div>
+              <div className="text-sm font-bold text-[var(--text-primary)] truncate">{userKelurahan}</div>
+            </div>
+
+            <div className="p-3.5 rounded border border-hairline bg-[var(--bg-surface)] space-y-1">
+              <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Kecamatan</div>
+              <div className="text-sm font-bold text-[var(--text-primary)] truncate">{userKecamatan}</div>
+            </div>
+
+            <div className="p-3.5 rounded border border-hairline bg-[var(--bg-surface)] space-y-1 col-span-2 sm:col-span-1">
+              <div className="text-[10px] text-[var(--text-muted)] uppercase tracking-wider">Kota / Kab</div>
+              <div className="text-sm font-bold text-[var(--text-primary)] truncate">{userKota}</div>
             </div>
           </div>
-          
+
+          {/* Privacy Note */}
+          <div className="p-4 rounded border border-hairline bg-[var(--bg-surface)] font-mono-code text-xs text-[var(--text-muted)] leading-relaxed space-y-1">
+            <div className="font-bold text-[var(--text-primary)]">Perhatian Privasi Wilayah:</div>
+            <div>
+              Alamat email dan identitas Anda hanya dibagikan kepada pengurus RT setempat saat Anda mengirimkan pengaduan darurat. Seluruh data dijaga kerahasiaannya.
+            </div>
+          </div>
         </div>
+
       </div>
     </div>
   );

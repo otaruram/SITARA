@@ -1,24 +1,87 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: 'Instrument Serif', Georgia, serif;
+  --font-sans: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-display: 'Space Grotesk', system-ui, sans-serif;
+}
+
 @layer base {
+  :root {
+    --bg-surface: #F8F7F4;
+    --bg-card: #FFFFFF;
+    --border-subtle: #E6E2D8;
+    --text-primary: #1A1917;
+    --text-muted: #6B665F;
+    --accent-civic: #C2410C;
+    --accent-surface: #FFF7ED;
+  }
+
+  [data-theme="terminal"] {
+    --bg-surface: #090A0E;
+    --bg-card: #12141C;
+    --border-subtle: #252838;
+    --text-primary: #F3F5FA;
+    --text-muted: #8E96AB;
+    --accent-civic: #F97316;
+    --accent-surface: #26170B;
+  }
+
+  [data-theme="clean"] {
+    --bg-surface: #F8FAFC;
+    --bg-card: #FFFFFF;
+    --border-subtle: #E2E8F0;
+    --text-primary: #0F172A;
+    --text-muted: #64748B;
+    --accent-civic: #0284C7;
+    --accent-surface: #F0F9FF;
+  }
+
   body {
-    @apply bg-slate-50 text-slate-900 antialiased;
+    background-color: var(--bg-surface);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Hallmark The Floor: Mandatory accessible focus-visible rings */
+  *:focus-visible {
+    outline: 2px solid var(--accent-civic);
+    outline-offset: 2px;
   }
 }
 
-@layer utilities {
-  .animate-bounce-slow {
-    animation: bounce-slow infinite ease-in-out;
-  }
+.font-serif-display {
+  font-family: var(--font-serif);
 }
 
-@keyframes bounce-slow {
-  0%, 100% {
-    transform: translateY(-5%);
-    animation-timing-function: cubic-bezier(0.8,0,1,1);
-  }
-  50% {
-    transform: none;
-    animation-timing-function: cubic-bezier(0,0,0.2,1);
-  }
+.font-mono-code {
+  font-family: var(--font-mono);
+}
+
+.font-sans-body {
+  font-family: var(--font-sans);
+}
+
+/* Hallmark Material Hairline Border */
+.border-hairline {
+  border: 1px solid var(--border-subtle);
+}
+
+/* Paper micro-texture */
+.texture-paper {
+  background-image: radial-gradient(rgba(0, 0, 0, 0.035) 1px, transparent 1px);
+  background-size: 18px 18px;
+}
+
+[data-theme="terminal"] .texture-paper {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+/* Badge and stamp effects */
+.civic-stamp {
+  box-shadow: inset 0 0 0 1px currentColor;
 }

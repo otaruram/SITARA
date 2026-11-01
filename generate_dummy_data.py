@@ -59,7 +59,7 @@ zebra_fill = PatternFill(start_color=ZEBRA_ROW, end_color=ZEBRA_ROW, fill_type="
 # Judul Dokumen di Sheet 1 (Sesuai wilayah user: RT 005 / RW 007, Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor)
 ws1["A1"] = "DATASET PENGADUAN DAN ASPIRASI WARGA TINGKAT RT (SITARA) - RT 005 / RW 007"
 ws1["A1"].font = font_title
-ws1["A2"] = "Wilayah: RT 005 / RW 007, Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor, Jawa Barat | Standar Schema: Satu Data SP4N-LAPOR! & Triase LLM STSI4401 UT"
+ws1["A2"] = "Wilayah: RT 005 / RW 007, Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor, Jawa Barat | Pengurus RT: Anen | Pengurus RW: Sopian Sayuri | Standar Schema: Satu Data SP4N-LAPOR! & Triase LLM STSI4401 UT"
 ws1["A2"].font = font_subtitle
 
 headers = [
@@ -253,15 +253,17 @@ ws2.views.sheetView[0].showGridLines = True
 
 ws2["A1"] = "METADATA DATASET PENGADUAN WARGA (STANDAR SATU DATA SP4N-LAPOR & SITARA)"
 ws2["A1"].font = font_title
-ws2["A2"] = "Lokasi Studi: RT 005 / RW 007, Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor | Acuan: SP4N-LAPOR! & Proposal STSI4401 UT"
+ws2["A2"] = "Lokasi Studi: RT 005 / RW 007, Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor | Pengurus RT: Anen | Pengurus RW: Sopian Sayuri | Acuan: SP4N-LAPOR! & Proposal STSI4401 UT"
 ws2["A2"].font = font_subtitle
 
 meta_info = [
     ("Judul Dataset", "Dataset Pengaduan dan Aspirasi Masyarakat Tingkat RT (SITARA) Berbasis LLM"),
     ("Wilayah Studi Kasus", "RT 005 / RW 007, Kelurahan Kebon Kelapa, Kecamatan Bogor Tengah, Kota Bogor, Jawa Barat"),
+    ("Nama Pengurus RT", "Anen (Ketua RT 005)"),
+    ("Nama Pengurus RW", "Sopian Sayuri (Ketua RW 007)"),
     ("Kode Referensi Wilayah", "Kode Provinsi: 32 (Jawa Barat) | Kode Kabupaten/Kota: 32.71 (Kota Bogor)"),
     ("Kode Dataset / ID Dokumen", "SDI-BOGOR-SITARA-RT005-2026"),
-    ("Nama Produsen Data", "Pengurus RT 005 / RW 007 Kelurahan Kebon Kelapa & Tim SITARA Capstone STSI4401"),
+    ("Nama Produsen Data", "Pengurus RT 005 (Anen) & Pengurus RW 007 (Sopian Sayuri), Kelurahan Kebon Kelapa & Tim SITARA Capstone STSI4401"),
     ("Instansi Pembina Data", "Dinas Komunikasi dan Informatika (Diskominfo) & Kelurahan Kebon Kelapa"),
     ("Platform Asal", "SITARA (Sistem Informasi Triase dan Aduan Warga) & Form SP4N-LAPOR!"),
     ("Periode Data", "Agustus 2026 - November 2026 (100 Record Sampel Aduan Warga)"),
@@ -317,8 +319,8 @@ data_dict = [
     (7, "Kabupaten/Kota", "Varchar(50)", "Kemendagri / SDI", "Nama wilayah administratif kota (KOTA BOGOR)"),
     (8, "Kecamatan", "Varchar(50)", "SITARA Profile", "Wilayah kecamatan tempat RT berkedudukan (Bogor Tengah)"),
     (9, "Kelurahan", "Varchar(50)", "SITARA Profile", "Wilayah kelurahan pemukiman warga (Kebon Kelapa)"),
-    (10, "RW", "Varchar(10)", "SITARA Profile", "Nomor Rukun Warga (RW 007)"),
-    (11, "RT", "Varchar(10)", "SITARA Profile", "Nomor Rukun Tetangga domisili aduan (RT 005)"),
+    (10, "RW", "Varchar(10)", "SITARA Profile", "Nomor Rukun Warga (RW 007 - Pengurus RW: Sopian Sayuri)"),
+    (11, "RT", "Varchar(10)", "SITARA Profile", "Nomor Rukun Tetangga domisili aduan (RT 005 - Pengurus RT: Anen)"),
     (12, "Nama Pelapor", "Varchar(100)", "SP4N-LAPOR!", "Nama warga pengirim aduan, atau 'Anonim' jika memilih merahasiakan"),
     (13, "Nomor WhatsApp", "Varchar(20)", "SITARA Schema", "Kontak WhatsApp pengirim untuk notifikasi tanggapan RT"),
     (14, "Tipe Laporan", "Enum", "SP4N-LAPOR!", "Derajat privasi: Publik, Rahasia, atau Anonim"),
@@ -330,9 +332,9 @@ data_dict = [
     (20, "Judul Laporan", "Varchar(150)", "SP4N-LAPOR!", "Ringkasan inti pokok aduan"),
     (21, "Teks Pengaduan", "Text", "User Input", "Teks alami bahasa sehari-hari warga yang diproses oleh LLM"),
     (22, "Reasoning LLM", "Text", "LLM Output", "Penjelasan logis sistem AI mengapa aduan diberi skor & kategori tertentu"),
-    (23, "Pihak Terdisposisi", "Varchar(100)", "SP4N-LAPOR!", "Penanggung jawab lapangan (Ketua RT 005, Seksi Keamanan, Puskesmas, dll)"),
+    (23, "Pihak Terdisposisi", "Varchar(100)", "SP4N-LAPOR!", "Penanggung jawab lapangan (Ketua RT 005 Anen, Pengurus RW 007 Sopian Sayuri, Seksi Keamanan, Puskesmas, dll)"),
     (24, "Status Laporan", "Enum", "SITARA Schema", "Status eksekusi: PENDING, PROSES, SELESAI, DITOLAK"),
-    (25, "Tindak Lanjut", "Text", "RT Action Log", "Catatan langkah riil penyelesaian yang diambil oleh pihak RT 005")
+    (25, "Tindak Lanjut", "Text", "RT Action Log", "Catatan langkah riil penyelesaian yang diambil oleh pihak RT 005 (Anen)")
 ]
 
 for idx, (num, col_name, dtype, source, d_desc) in enumerate(data_dict, kamus_start+2):
@@ -368,7 +370,7 @@ ws3.views.sheetView[0].showGridLines = True
 
 ws3["A1"] = "REKAPITULASI DAN DISTRIBUSI DATA DUMMY SITARA (100 DATA)"
 ws3["A1"].font = font_title
-ws3["A2"] = "Gambaran Kinerja Triase Otomatis Large Language Model - RT 005 / RW 007 Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor"
+ws3["A2"] = "Gambaran Kinerja Triase Otomatis Large Language Model - RT 005 / RW 007 (Pengurus RT: Anen | Pengurus RW: Sopian Sayuri), Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor"
 ws3["A2"].font = font_subtitle
 
 # Hitung statistik dari data_rows
@@ -423,7 +425,7 @@ for r_i, (tp, rng, jml, pct) in enumerate(t1_data, 6):
             c.fill = zebra_fill
 
 # Tabel 2: Rekap Status Penyelesaian
-ws3.cell(row=11, column=1, value="Tabel 2. Status Penanganan Laporan di Tingkat RT 005").font = font_bold
+ws3.cell(row=11, column=1, value="Tabel 2. Status Penanganan Laporan di Tingkat RT 005 (Pengurus RT: Anen)").font = font_bold
 headers_t2 = ["Status Laporan", "Keterangan Operasional", "Jumlah", "Persentase (%)"]
 for c_i, h in enumerate(headers_t2, 1):
     c = ws3.cell(row=12, column=c_i, value=h)
@@ -433,11 +435,11 @@ for c_i, h in enumerate(headers_t2, 1):
     c.border = thin_border
 
 t2_data = [
-    ("SELESAI", "Telah ditindaklanjuti dan diverifikasi tuntas oleh RT 005", stat_status.get("SELESAI", 0), f"{stat_status.get('SELESAI', 0)}%"),
-    ("PROSES", "Sedang dalam pengerjaan teknis / mediasi pihak RT 005", stat_status.get("PROSES", 0), f"{stat_status.get('PROSES', 0)}%"),
+    ("SELESAI", "Telah ditindaklanjuti dan diverifikasi tuntas oleh RT 005 (Anen)", stat_status.get("SELESAI", 0), f"{stat_status.get('SELESAI', 0)}%"),
+    ("PROSES", "Sedang dalam pengerjaan teknis / mediasi pihak RT 005 (Anen)", stat_status.get("PROSES", 0), f"{stat_status.get('PROSES', 0)}%"),
     ("PENDING", "Menunggu giliran penanganan / disposisi lapangan", stat_status.get("PENDING", 0), f"{stat_status.get('PENDING', 0)}%"),
-    ("DITOLAK", "Laporan tidak relevan / melanggar norma / di luar kewenangan RT", stat_status.get("DITOLAK", 0), f"{stat_status.get('DITOLAK', 0)}%"),
-    ("Total", "Seluruh aduan terdaftar di sistem SITARA RT 005", 100, "100.0%")
+    ("DITOLAK", "Laporan tidak relevan / melanggar norma / di luar kewenangan RT 005", stat_status.get("DITOLAK", 0), f"{stat_status.get('DITOLAK', 0)}%"),
+    ("Total", "Seluruh aduan terdaftar di sistem SITARA RT 005 (Anen)", 100, "100.0%")
 ]
 
 for r_i, (st, desc, jml, pct) in enumerate(t2_data, 13):
@@ -500,6 +502,8 @@ ws3.column_dimensions["C"].width = 18
 ws3.column_dimensions["D"].width = 18
 
 # Simpan File Excel
+import shutil
+
 output_excel_path = r"c:\Users\asus\Pictures\Tugas\Dataset_Dummy_Pengaduan_SITARA_100_Data.xlsx"
 wb.save(output_excel_path)
 print(f"File Excel berhasil dibuat di: {output_excel_path}")
@@ -513,3 +517,16 @@ with open(output_csv_path, 'w', newline='', encoding='utf-8-sig') as f:
         writer.writerow(row_vals)
 
 print(f"File CSV berhasil diekspor di: {output_csv_path}")
+
+# Sinkronisasi file ke fe/public dan fe/dist
+dest_dirs = [
+    r"c:\Users\asus\Pictures\Tugas\fe\public",
+    r"c:\Users\asus\Pictures\Tugas\fe\dist"
+]
+
+for d in dest_dirs:
+    if os.path.exists(d):
+        shutil.copy2(output_excel_path, os.path.join(d, "Dataset_Dummy_Pengaduan_SITARA_100_Data.xlsx"))
+        shutil.copy2(output_csv_path, os.path.join(d, "Dataset_Dummy_Pengaduan_SITARA_100_Data.csv"))
+        print(f"File berhasil disinkronkan ke: {d}")
+

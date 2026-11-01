@@ -1,14 +1,14 @@
-# 100 Detailed Complaints Data for SITARA (RT 005 / RW 007, Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor)
+# 100 Detailed Complaints Data for SITARA (RT 005 / RW 007 - Pengurus RT: Anen, Pengurus RW: Sopian Sayuri, Kel. Kebon Kelapa, Kec. Bogor Tengah, Kota Bogor)
 data_rows = [
     # 1 - 10: Darurat & Bahaya Kritis (80-100)
     {
         "tanggal": "2026-08-01", "klasifikasi": "Pengaduan", "kategori": "Darurat & Infrastruktur",
         "judul": "Kabel Listrik Utama Menjuntai Rendah di Depan Gang Kelapa",
         "isi": "Kabel listrik PLN putus sebagian dan menjuntai sangat rendah hanya 1,5 meter dari tanah di depan Gang Kelapa RT 005. Sempat mengeluarkan percikan api saat terkena angin kencang dan hujan deras. Sangat membahayakan anak-anak dan pengendara motor yang melintas.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Petugas PLN Bogor",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Petugas PLN Bogor",
         "score": 96, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Ancaman keselamatan jiwa langsung berupa bahaya sengatan listrik dan potensi kebakaran fatal di jalan utama pemukiman padat.",
-        "tindak_lanjut": "Pengurus RT 005 memasang tali pembatas darurat dan menghubungi call center PLN Bogor; kabel berhasil diperbaiki dalam waktu 2,5 jam."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) memasang tali pembatas darurat dan menghubungi call center PLN Bogor; kabel berhasil diperbaiki dalam waktu 2,5 jam."
     },
     {
         "tanggal": "2026-08-02", "klasifikasi": "Pengaduan", "kategori": "Darurat & Kebencanaan",
@@ -32,7 +32,7 @@ data_rows = [
         "tanggal": "2026-08-04", "klasifikasi": "Pengaduan", "kategori": "Darurat & Infrastruktur",
         "judul": "Pipa Distribusi Utama Perumda Tirta Pakuan Pecah Menggenangi Jalan",
         "isi": "Pipa distribusi air bersih bawah tanah milik Tirta Pakuan pecah di pertigaan gang RT 005. Air menyembur deras mengikis pondasi jalan paving dan mulai membanjiri garasi serta teras rumah warga nomor 12.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Pengurus RT 005 & Petugas Tirta Pakuan",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Pengurus RT 005 (Anen) & Petugas Tirta Pakuan",
         "score": 89, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Pemborosan debit air bersih dalam skala besar, erosi struktur pondasi jalan pemukiman, dan genangan air ke rumah warga.",
         "tindak_lanjut": "Katup saluran utama ditutup sementara oleh pengurus RT dan tim teknis Tirta Pakuan Kota Bogor menyelesaikan penggantian pipa."
@@ -40,7 +40,7 @@ data_rows = [
     {
         "tanggal": "2026-08-05", "klasifikasi": "Pengaduan", "kategori": "Kesehatan & Lingkungan",
         "judul": "Tiga Balita di RT 005 Positif DBD, Lahan Kosong Penuh Genangan Jentik",
-        "isi": "Lapor pak RT, dua anak tetangga dan satu balita di gang RT 005 sudah dirawat inap di RSUD Kota Bogor terkonfirmasi DBD. Di lahan kosong pembatas ada banyak tumpukan ban bekas dan kaleng yang terisi air hujan berlumut penuh jentik nyamuk.",
+        "isi": "Lapor Pak RT Anen, dua anak tetangga dan satu balita di gang RT 005 sudah dirawat inap di RSUD Kota Bogor terkonfirmasi DBD. Di lahan kosong pembatas ada banyak tumpukan ban bekas dan kaleng yang terisi air hujan berlumut penuh jentik nyamuk.",
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Kesehatan RT 005 & Puskesmas Bogor Tengah",
         "score": 94, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Wabah penyakit menular berbahaya (Demam Berdarah Dengue) yang menimbulkan korban rawat inap pada kelompok rentan balita.",
@@ -59,7 +59,7 @@ data_rows = [
         "tanggal": "2026-08-07", "klasifikasi": "Pengaduan", "kategori": "Darurat & Kebencanaan",
         "judul": "Tebing Penahan Saluran Drainase Cipakancilan Longsor di Belakang RT 005",
         "isi": "Tembok penahan tanah saluran drainase sepanjang 6 meter ambrol terbawa arus luapan air hujan lebat kemarin sore. Tanah di bawah tepi jalan setapak RT 005 mulai tergerus longsor, dikhawatirkan jalan amblas jika hujan deras lagi.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RW 007 & Dinas PUPR Kota Bogor",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RW 007 (Sopian Sayuri) & Dinas PUPR Kota Bogor",
         "score": 90, "prioritas": "Tinggi", "status": "PROSES",
         "reason": "Potensi amblasnya jalur transportasi pemukiman warga akibat longsor tebing drainase aktif saat musim penghujan.",
         "tindak_lanjut": "Pemasangan tumpukan karung pasir dan cerucuk bambu darurat serta pengajuan perbaikan bronjong ke Dinas PUPR."
@@ -68,10 +68,10 @@ data_rows = [
         "tanggal": "2026-08-08", "klasifikasi": "Pengaduan", "kategori": "Darurat & Lingkungan",
         "judul": "Pembakaran Sampah Kabel dan Ban Bekas Berasap Pekat di Tepi Kali",
         "isi": "Ada pihak penyewa gudang rongsok di batas RT 005 yang membakar tumpukan kulit kabel tembaga dan ban bekas. Asap hitam pekat beracun masuk ke rumah-rumah warga hingga beberapa lansia mengalami sesak napas akut.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005, Kel. Kebon Kelapa & Babinsa",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen), Kel. Kebon Kelapa & Babinsa",
         "score": 91, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Polusi udara bahan kimia berbahaya (B3) ilegal yang mengancam saluran pernapasan warga lansia dan anak secara langsung.",
-        "tindak_lanjut": "Pengurus RT 005 bersama Babinsa mendatangi lokasi, memadamkan api, dan membuat surat peringatan keras penghentian usaha."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) bersama Babinsa mendatangi lokasi, memadamkan api, dan membuat surat peringatan keras penghentian usaha."
     },
     {
         "tanggal": "2026-08-09", "klasifikasi": "Pengaduan", "kategori": "Keamanan & Ketertiban",
@@ -86,7 +86,7 @@ data_rows = [
         "tanggal": "2026-08-10", "klasifikasi": "Pengaduan", "kategori": "Darurat & Kebencanaan",
         "judul": "Luapan Air Selokan Masuk ke Rumah Warga Akibat Sampah Menumpuk di Gorong-gorong",
         "isi": "Gorong-gorong pembuangan utama RT 005 tersumbat batang kayu dan kasur bekas yang hanyut saat hujan deras khas Bogor mengguyur. Air kotor meluap hingga setinggi 30 cm merendam 6 rumah warga di deretan bawah.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Satgas Bencana Warga",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Satgas Bencana Warga",
         "score": 93, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Banjir genangan air kotor yang merendam pemukiman, mengancam perabot rumah tangga, dan memicu risiko kuman penyakit.",
         "tindak_lanjut": "Pengurus RT dan warga langsung bergotong-royong menjebol sumbatan sampah; air surut tuntas dalam waktu 1 jam."
@@ -96,10 +96,10 @@ data_rows = [
         "tanggal": "2026-08-11", "klasifikasi": "Pengaduan", "kategori": "Keamanan & Ketertiban",
         "judul": "Anjing Peliharaan Dilepas Liar Tanpa Pengaman Menggigit Kurir Paket",
         "isi": "Penghuni rumah ujung RT 005 memelihara anjing besar sering membiarkannya berkeliaran di jalan gang tanpa tali penuntun. Tadi siang anjing mengejar dan menggigit betis kurir ekspedisi hingga terluka berdarah.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Pemilik Rumah",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Pemilik Rumah",
         "score": 86, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Ancaman keselamatan fisik warga dan pekerja pelayanan umum akibat gigitan hewan peliharaan tanpa pengawasan.",
-        "tindak_lanjut": "Ketua RT 005 memfasilitasi mediasi; pemilik bersedia menanggung pengobatan dan wajib mengandangkan anjing."
+        "tindak_lanjut": "Ketua RT 005 (Anen) memfasilitasi mediasi; pemilik bersedia menanggung pengobatan dan wajib mengandangkan anjing."
     },
     {
         "tanggal": "2026-08-12", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
@@ -132,7 +132,7 @@ data_rows = [
         "tanggal": "2026-08-15", "klasifikasi": "Pengaduan", "kategori": "Darurat & Infrastruktur",
         "judul": "Tiang Lampu Besi Gang Keropos dan Miring Mengarah ke Rumah Warga",
         "isi": "Tiang besi lampu penerangan jalan di gang 2 RT 005 bagian bawahnya sudah keropos berkarat parah. Saat terpaan angin kencang hujan Bogor tiang bergoyang dan condong miring ke arah atap kanopi rumah warga.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Pengurus RT 005 & Seksi Pembangunan",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Pengurus RT 005 (Anen) & Seksi Pembangunan",
         "score": 83, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Potensi robohnya tiang besi berat menimpa hunian warga atau pejalan kaki saat terjadi angin kencang.",
         "tindak_lanjut": "Tiang besi keropos dipotong dan diganti pipa galvanis baru dengan penguatan cor semen pondasi."
@@ -153,13 +153,13 @@ data_rows = [
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Kebersihan RT 005 & DLH Kota Bogor",
         "score": 85, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Krisis sanitasi lingkungan pemukiman padat berisiko memicu wabah penyakit diare dan gangguan pernapasan.",
-        "tindak_lanjut": "Ketua RT 005 berkoordinasi dengan pengawas armada DLH Kota Bogor; sampah langsung diangkut bersih dengan 2 truk."
+        "tindak_lanjut": "Ketua RT 005 (Anen) berkoordinasi dengan pengawas armada DLH Kota Bogor; sampah langsung diangkut bersih dengan 2 truk."
     },
     {
         "tanggal": "2026-08-18", "klasifikasi": "Pengaduan", "kategori": "Keamanan & Ketertiban",
         "judul": "Penjambretan HP Pelajar Sekolah di Depan Gapura RT 005",
         "isi": "Pelajar SMP warga RT 005 dijambret ponselnya oleh dua pelaku pengendara sepeda motor matik tanpa plat saat menunggu angkot di dekat gapura RT. Korban sempat tersungkur hingga lututnya lecet.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Bhabinkamtibmas Kebon Kelapa",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Bhabinkamtibmas Kebon Kelapa",
         "score": 87, "prioritas": "Tinggi", "status": "PROSES",
         "reason": "Tindak pidana pencurian dengan kekerasan (jambret) di muka umum yang menimpa anak sekolah di kawasan pemukiman.",
         "tindak_lanjut": "Pengurus RT mendampingi korban melapor ke Polsek Bogor Tengah dan memasang spanduk peringatan waspada kejahatan jalanan."
@@ -168,7 +168,7 @@ data_rows = [
         "tanggal": "2026-08-19", "klasifikasi": "Pengaduan", "kategori": "Darurat & Infrastruktur",
         "judul": "Jembatan Kayu Akses Gang Kecil RT 005 Patah Gelagarnya",
         "isi": "Gelagar kayu penopang jembatan penyeberangan saluran air di gang dalam RT 005 retak dan patah setelah dilewati gerobak pasir. Posisi jembatan miring berbahaya jika dilintasi warga sepuh.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Sarpras RT 005 & Pengurus RW 007",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Sarpras RT 005 & Pengurus RW 007 (Sopian Sayuri)",
         "score": 84, "prioritas": "Tinggi", "status": "PROSES",
         "reason": "Kegagalan konstruksi jembatan pejalan kaki yang berisiko ambruk total ke saluran air saat dilewati warga.",
         "tindak_lanjut": "Jembatan ditutup sementara; pengurus RT 005 mengumpulkan swadaya pembelian besi hollow dan plat bordes baja."
@@ -198,16 +198,16 @@ data_rows = [
         "tipe": "Publik", "sumber": "WhatsApp Warga", "disposisi": "Seksi Tanggap Darurat RT 005",
         "score": 95, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Bahaya ledakan gas dan kebakaran seketika pada pemukiman padat penduduk serta ancaman keselamatan lansia.",
-        "tindak_lanjut": "Pengurus RT 005 dan warga mendobrak ventilasi atas, mengevakuasi tabung gas bocor ke lapangan, dan menolong Ibu Eni."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) dan warga mendobrak ventilasi atas, mengevakuasi tabung gas bocor ke lapangan, dan menolong Ibu Eni."
     },
     {
         "tanggal": "2026-08-23", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
         "judul": "Jalan Aspal Gang RT 005 Ambles Selebar 1 Meter Bekas Galian Utilitas",
         "isi": "Bekas galian penanaman pipa utilitas bulan lalu di gang RT 005 tidak dipadatkan merata. Hujan deras kemarin menyebabkan aspal jalan ambles sedalam 20 cm selebar 1 meter; ada ban motor warga yang terperosok patah velg.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Kontraktor Proyek",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Kontraktor Proyek",
         "score": 83, "prioritas": "Tinggi", "status": "PROSES",
         "reason": "Kerusakan jalan membahayakan pengendara roda dua dan memicu kerugian materiil pengguna jalan.",
-        "tindak_lanjut": "Pengurus RT 005 melayangkan teguran ke kontraktor pelaksana untuk melakukan penambalan aspal hotmix kembali."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) melayangkan teguran ke kontraktor pelaksana untuk melakukan penambalan aspal hotmix kembali."
     },
     {
         "tanggal": "2026-08-24", "klasifikasi": "Pengaduan", "kategori": "Keamanan & Ketertiban",
@@ -222,10 +222,10 @@ data_rows = [
         "tanggal": "2026-08-25", "klasifikasi": "Pengaduan", "kategori": "Darurat & Kebencanaan",
         "judul": "Atap Kanopi Seng Rumah Warga Terbang Diterjang Angin Ribut Hujan Bogor",
         "isi": "Angin ribut kencang disertai hujan lebat siang tadi menerbangkan atap kanopi seng warga RT 005 hingga tersangkut di kabel listrik dan menimpa genteng tetangga sebelah. Butuh evakuasi segera.",
-        "tipe": "Publik", "sumber": "WhatsApp Warga", "disposisi": "Ketua RT 005 & Relawan Warga",
+        "tipe": "Publik", "sumber": "WhatsApp Warga", "disposisi": "Ketua RT 005 (Anen) & Relawan Warga",
         "score": 89, "prioritas": "Tinggi", "status": "SELESAI",
         "reason": "Bahaya lembaran seng tajam yang tersangkut kabel listrik bertegangan dan risiko roboh menimpa pejalan kaki.",
-        "tindak_lanjut": "Warga dipimpin Ketua RT 005 berhati-hati menurunkan lembaran seng dari kabel tiang listrik dan mengamankan lokasi."
+        "tindak_lanjut": "Warga dipimpin Ketua RT 005 (Anen) berhati-hati menurunkan lembaran seng dari kabel tiang listrik dan mengamankan lokasi."
     },
 
     # 26 - 75: Prioritas Sedang (41 - 79)
@@ -242,19 +242,19 @@ data_rows = [
         "tanggal": "2026-08-27", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Suara Musik Karaoke Menyetel Keras Hingga Jam 24.00 di Rumah Kontrakan",
         "isi": "Penghuni rumah sewa nomor 8 RT 005 kerap menyalakan sound system karaoke dengan suara bass keras hingga tengah malam. Tetangga yang memiliki bayi dan lansia yang sedang sakit sangat terganggu jam istirahatnya.",
-        "tipe": "Anonim", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Pemilik Kontrakan",
+        "tipe": "Anonim", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Pemilik Kontrakan",
         "score": 62, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Pelanggaran ketenteraman lingkungan hunian dan kesepakatan batas jam malam tata tertib RT 005.",
-        "tindak_lanjut": "Ketua RT 005 menyampaikan teguran persuasif kepada penyewa; disepakati batas aktivitas bernyanyi maksimal pukul 21.00 WIB."
+        "tindak_lanjut": "Ketua RT 005 (Anen) menyampaikan teguran persuasif kepada penyewa; disepakati batas aktivitas bernyanyi maksimal pukul 21.00 WIB."
     },
     {
         "tanggal": "2026-08-28", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
         "judul": "Mobil Parkir di Bahu Jalan Gang RT 005 Menutup Akses Ambulans",
         "isi": "Ada warga yang memarkir mobilnya di tikungan gang sempit RT 005 secara sembarangan karena garasi rumahnya penuh. Akibatnya mobil ambulans atau pemadam kebakaran dipastikan tidak bisa melintas jika ada darurat.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Seksi Ketertiban",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Seksi Ketertiban",
         "score": 74, "prioritas": "Sedang", "status": "PROSES",
         "reason": "Penyalahgunaan ruang jalan umum yang menghambat kelancaran akses armada tanggap darurat warga.",
-        "tindak_lanjut": "Pengurus RT 005 memberikan surat edaran wajib memiliki garasi atau memarkir di area penitipan mobil berizin."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) memberikan surat edaran wajib memiliki garasi atau memarkir di area penitipan mobil berizin."
     },
     {
         "tanggal": "2026-08-29", "klasifikasi": "Pengaduan", "kategori": "Kebersihan & Lingkungan",
@@ -263,16 +263,16 @@ data_rows = [
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Kebersihan RT 005",
         "score": 65, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Penurunan kapasitas tampung drainase yang memicu genangan air kotor di jalan pemukiman saat hujan.",
-        "tindak_lanjut": "Pengurus RT 005 menjadwalkan kerja bakti pengerukan sedimen parit serentak pada hari Minggu pagi."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) menjadwalkan kerja bakti pengerukan sedimen parit serentak pada hari Minggu pagi."
     },
     {
         "tanggal": "2026-08-30", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Kucing Peliharaan Dibiarkan Buang Kotoran di Teras Rumah Tetangga",
         "isi": "Tetangga memelihara banyak kucing dilepas bebas tanpa pasir kotak kotoran. Kotoran kucing setiap pagi berserakan di pot tanaman dan teras tetangga RT 005, menimbulkan bau tak sedap dan perdebatan antar warga.",
-        "tipe": "Publik", "sumber": "WhatsApp Warga", "disposisi": "Ketua RT 005",
+        "tipe": "Publik", "sumber": "WhatsApp Warga", "disposisi": "Ketua RT 005 (Anen)",
         "score": 53, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Gangguan higienitas lingkungan pemukiman antar tetangga yang berpotensi menyulut konflik horizontal.",
-        "tindak_lanjut": "Mediasi kekeluargaan difasilitasi Ketua RT 005; pemilik kucing bersedia menyediakan kotak kotoran di halaman belakang."
+        "tindak_lanjut": "Mediasi kekeluargaan difasilitasi Ketua RT 005 (Anen); pemilik kucing bersedia menyediakan kotak kotoran di halaman belakang."
     },
     {
         "tanggal": "2026-08-31", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
@@ -290,7 +290,7 @@ data_rows = [
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Sekretaris RT 005",
         "score": 48, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Keterlambatan pelayanan administrasi kependudukan dasar warga yang memiliki batas waktu tenggat kerja.",
-        "tindak_lanjut": "Sekretaris RT 005 segera mencetak dokumen pengantar, meminta tanda tangan Ketua RT, dan menyerahkan ke pemohon."
+        "tindak_lanjut": "Sekretaris RT 005 segera mencetak dokumen pengantar, meminta tanda tangan Ketua RT 005 (Anen), dan menyerahkan ke pemohon."
     },
     {
         "tanggal": "2026-09-02", "klasifikasi": "Pengaduan", "kategori": "Kebersihan & Lingkungan",
@@ -323,19 +323,19 @@ data_rows = [
         "tanggal": "2026-09-05", "klasifikasi": "Pengaduan", "kategori": "Kesehatan & Lingkungan",
         "judul": "Kandang Unggas Ayam Petelur Dekat Jendela Rumah Warga Menimbulkan Bau",
         "isi": "Warga di belakang RT 005 memelihara puluhan ekor unggas yang kandangnya mepet ke tembok kamar tetangga. Kotorannya berbau busuk tajam saat terkena hujan dan banyak lalat masuk ke dapur.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Seksi Lingkungan",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Seksi Lingkungan",
         "score": 64, "prioritas": "Sedang", "status": "PROSES",
         "reason": "Masalah sanitasi dan risiko pencemaran udara lingkungan pemukiman padat dari peternakan unggas dekat hunian.",
-        "tindak_lanjut": "Pengurus RT 005 meminta pemilik secara berkala menyemprotkan cairan probiotik anti-bau dan mengurangi populasi unggas."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) meminta pemilik secara berkala menyemprotkan cairan probiotik anti-bau dan mengurangi populasi unggas."
     },
     {
         "tanggal": "2026-09-06", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Dahan Pohon Nangka Tetangga Menjulur Merusak Talang Genteng Rumah",
         "isi": "Dahan besar pohon nangka milik pekarangan sebelah menjulur menutupi atap rumah saya di RT 005. Daun gugur menyumbat talang dan buah yang jatuh sempat memecahkan 3 genteng kaca.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen)",
         "score": 52, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Potensi kerusakan properti tetangga akibat pohon yang melewati batas pekarangan tanpa pemangkasan rutin.",
-        "tindak_lanjut": "Ketua RT 005 mendampingi kerja sama pemangkasan dahan pohon secara damai dan gotong royong."
+        "tindak_lanjut": "Ketua RT 005 (Anen) mendampingi kerja sama pemangkasan dahan pohon secara damai dan gotong royong."
     },
     {
         "tanggal": "2026-09-07", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
@@ -377,10 +377,10 @@ data_rows = [
         "tanggal": "2026-09-11", "klasifikasi": "Pengaduan", "kategori": "Keamanan & Ketertiban",
         "judul": "Penagih Pinjaman Online Berteriak-teriak Gaduh di Depan Rumah No 15 RT 005",
         "isi": "Oknum penagih pinjaman online kerap datang berombongan menggedor pintu dan berteriak memaki di depan rumah warga RT 005, menimbulkan keributan yang membuat takut tetangga sekitar.",
-        "tipe": "Anonim", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Seksi Keamanan",
+        "tipe": "Anonim", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Seksi Keamanan",
         "score": 71, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Gangguan ketenteraman lingkungan pemukiman dan tekanan intimidasi publik yang meresahkan ketenangan warga.",
-        "tindak_lanjut": "Pengurus RT 005 menegur penagih agar tidak membuat kegaduhan di pemukiman dan meminta mediasi resmi."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) menegur penagih agar tidak membuat kegaduhan di pemukiman dan meminta mediasi resmi."
     },
     {
         "tanggal": "2026-09-12", "klasifikasi": "Pengaduan", "kategori": "Kebersihan & Lingkungan",
@@ -389,7 +389,7 @@ data_rows = [
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Kebersihan RT 005",
         "score": 60, "prioritas": "Sedang", "status": "PROSES",
         "reason": "Genangan minyak menyebabkan jalanan licin berisiko mencelakakan pemotor serta menimbulkan bau asam.",
-        "tindak_lanjut": "Pengurus RT 005 mewajibkan penghuni memasang pipa paralon penghubung langsung ke gorong-gorong got tertutup."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) mewajibkan penghuni memasang pipa paralon penghubung langsung ke gorong-gorong got tertutup."
     },
     {
         "tanggal": "2026-09-13", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
@@ -404,7 +404,7 @@ data_rows = [
         "tanggal": "2026-09-14", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Mobil Boks Ekspedisi Gudang Online Parkir Menutup Separuh Jalan RT 005",
         "isi": "Salah satu rumah di RT 005 dijadikan tempat penampungan paket belanja online, mobil boks sering bongkar muatan barang di jam sibuk pagi hari sehingga motor warga kesulitan berangkat kerja.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Seksi Ketertiban",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Seksi Ketertiban",
         "score": 63, "prioritas": "Sedang", "status": "PROSES",
         "reason": "Hambatan mobilitas lalu lintas lingkungan akibat aktivitas niaga logistik pada jam puncak keberangkatan warga.",
         "tindak_lanjut": "Kesepakatan bersama bahwa aktivitas bongkar muat hanya diperbolehkan setelah pukul 09.00 WIB dan mobil tidak melintang."
@@ -440,10 +440,10 @@ data_rows = [
         "tanggal": "2026-09-18", "klasifikasi": "Pelayanan & Administrasi", "kategori": "Pelayanan & Administrasi",
         "judul": "Informasi Pendataan Bantuan Pangan Beras Kelurahan Kebon Kelapa Belum Jelas",
         "isi": "Beberapa warga lansia kurang mampu di RT 005 menanyakan kepastian jadwal pembagian bantuan beras cadangan pangan pemerintah kelurahan karena di RW sebelah sudah mulai dibagikan.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Kasi Kemas Kelurahan Kebon Kelapa",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Kasi Kemas Kelurahan Kebon Kelapa",
         "score": 73, "prioritas": "Sedang", "status": "PROSES",
         "reason": "Kebutuhan kepastian informasi jaring pengaman sosial pangan bagi warga rentan dan janda lansia.",
-        "tindak_lanjut": "Ketua RT 005 mengonfirmasi jadwal distribusi ke kantor Kelurahan Kebon Kelapa dan menyebarkan jadwal resmi via grup WA."
+        "tindak_lanjut": "Ketua RT 005 (Anen) mengonfirmasi jadwal distribusi ke kantor Kelurahan Kebon Kelapa dan menyebarkan jadwal resmi via grup WA."
     },
     {
         "tanggal": "2026-09-19", "klasifikasi": "Pengaduan", "kategori": "Kebersihan & Lingkungan",
@@ -470,7 +470,7 @@ data_rows = [
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Pembangunan RT 005",
         "score": 56, "prioritas": "Sedang", "status": "PROSES",
         "reason": "Pemasangan utilitas jaringan swasta yang tidak tertib dan melanggar keserasian tata ruang pemukiman.",
-        "tindak_lanjut": "Pengurus RT 005 menghubungi supervisor vendor internet untuk merapikan gulungan kabel ke dalam kotak boks tiang."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) menghubungi supervisor vendor internet untuk merapikan gulungan kabel ke dalam kotak boks tiang."
     },
     {
         "tanggal": "2026-09-22", "klasifikasi": "Pengaduan", "kategori": "Keamanan & Ketertiban",
@@ -479,7 +479,7 @@ data_rows = [
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Keamanan RT 005",
         "score": 67, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Penurunan kedisiplinan jadwal siskamling mandiri warga yang berisiko membuka celah pencurian malam.",
-        "tindak_lanjut": "Ketua RT 005 merombak daftar kelompok giliran ronda, menyediakan buku absensi, dan menerapkan denda kas ketidakhadiran."
+        "tindak_lanjut": "Ketua RT 005 (Anen) merombak daftar kelompok giliran ronda, menyediakan buku absensi, dan menerapkan denda kas ketidakhadiran."
     },
     {
         "tanggal": "2026-09-23", "klasifikasi": "Pengaduan", "kategori": "Kebersihan & Lingkungan",
@@ -533,7 +533,7 @@ data_rows = [
         "tipe": "Publik", "sumber": "WhatsApp Warga", "disposisi": "Seksi Ketertiban RT 005",
         "score": 65, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Suara ledakan keras memicu kepanikan lansia dan risiko luka bakar akibat uap zat spirtus yang mudah meledak.",
-        "tindak_lanjut": "Pengurus RT 005 menyita pipa spirtus dan memberikan teguran pembinaan kepada orang tua anak bersangkutan."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) menyita pipa spirtus dan memberikan teguran pembinaan kepada orang tua anak bersangkutan."
     },
     {
         "tanggal": "2026-09-29", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
@@ -548,10 +548,10 @@ data_rows = [
         "tanggal": "2026-09-30", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Pemberian Pakan Burung Merpati Liar Mengotori Atap Mobil Tetangga",
         "isi": "Salah seorang warga RT 005 menaburkan jagung di jalanan depan rumah untuk memanggil puluhan merpati liar. Burung-burung tersebut hinggap di talang dan kotorannya mengotori kaca mobil tetangga.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen)",
         "score": 46, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Zat asam dari kotoran burung merusak cat kendaraan warga serta menimbulkan debu bulu alergi.",
-        "tindak_lanjut": "Ketua RT 005 mengimbau warga tersebut untuk memindahkan wadah pakan ke area halaman belakang rumah sendiri."
+        "tindak_lanjut": "Ketua RT 005 (Anen) mengimbau warga tersebut untuk memindahkan wadah pakan ke area halaman belakang rumah sendiri."
     },
     {
         "tanggal": "2026-10-01", "klasifikasi": "Pengaduan", "kategori": "Kesehatan & Lingkungan",
@@ -578,13 +578,13 @@ data_rows = [
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Seksi Keamanan RT 005",
         "score": 59, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Minimnya kepatuhan tamu luar melapor ke pengurus yang berisiko disalahgunakan untuk modus pengintaian rumah.",
-        "tindak_lanjut": "Pemasangan plang himbauan di pintu gerbang: 'Tamu/Sales 1x24 Jam Wajib Lapor Pengurus RT 005'."
+        "tindak_lanjut": "Pemasangan plang himbauan di pintu gerbang: 'Tamu/Sales 1x24 Jam Wajib Lapor Pengurus RT 005 (Anen)'."
     },
     {
         "tanggal": "2026-10-04", "klasifikasi": "Pelayanan & Administrasi", "kategori": "Pelayanan & Administrasi",
-        "judul": "Jam Pelayanan Tanda Tangan Surat di Rumah Ketua RT Perlu Kepastian Jadwal",
-        "isi": "Warga beberapa kali datang ke rumah Ketua RT 005 untuk minta legalisasi surat pengantar tetapi ketua RT sedang berdinas ke kantor. Diusulkan penetapan jam operasional pelayanan resmi.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Sekretaris RT 005",
+        "judul": "Jam Pelayanan Tanda Tangan Surat di Rumah Ketua RT Anen Perlu Kepastian Jadwal",
+        "isi": "Warga beberapa kali datang ke rumah Ketua RT 005 (Anen) untuk minta legalisasi surat pengantar tetapi ketua RT sedang berdinas ke kantor. Diusulkan penetapan jam operasional pelayanan resmi.",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Sekretaris RT 005",
         "score": 45, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Kebutuhan standarisasi waktu pelayanan publik lingkungan agar warga mendapat kepastian proses surat.",
         "tindak_lanjut": "Ditetapkan jam pelayanan tanda tangan setiap Senin-Jumat pukul 19.30-21.00 WIB atau melalui sistem online SITARA."
@@ -611,10 +611,10 @@ data_rows = [
         "tanggal": "2026-10-07", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Pemasangan Tenda Syukuran Menutup Total Jalan Gang RT 005 Tanpa Jalur Darurat",
         "isi": "Ada warga yang mendirikan tenda acara syukuran menutup total seluruh badan jalan gang RT 005 sejak pagi tanpa menyediakan celah lewat untuk sepeda motor atau jalur evakuasi.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Tuan Rumah",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Tuan Rumah",
         "score": 75, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Penutupan total akses lalu lintas jalan publik pemukiman yang berpotensi menghalangi penanganan darurat.",
-        "tindak_lanjut": "Pengurus RT 005 membantu menggeser tiang tenda sehingga tersisa ruang 1,6 meter untuk motor dan pejalan kaki."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) membantu menggeser tiang tenda sehingga tersisa ruang 1,6 meter untuk motor dan pejalan kaki."
     },
     {
         "tanggal": "2026-10-08", "klasifikasi": "Pengaduan", "kategori": "Keamanan & Ketertiban",
@@ -647,10 +647,10 @@ data_rows = [
         "tanggal": "2026-10-11", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Rumah Kontrakan RT 005 Sering Menerima Tamu Menginap Tanpa Lapor RT",
         "isi": "Sebuah rumah kontrakan pria di RT 005 sering didatangi tamu luar menginap berhari-hari tanpa menyerahkan identitas diri ke pengurus RT, memicu kekhawatiran norma warga sekitar.",
-        "tipe": "Anonim", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 & Pemilik Rumah",
+        "tipe": "Anonim", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen) & Pemilik Rumah",
         "score": 64, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Pelanggaran tata tertib wajib lapor tamu 1x24 jam bagi penghuni sewa di lingkungan pemukiman RT.",
-        "tindak_lanjut": "Ketua RT 005 memanggil penghuni kontrakan untuk mengisi buku tamu dan mematuhi norma lingkungan."
+        "tindak_lanjut": "Ketua RT 005 (Anen) memanggil penghuni kontrakan untuk mengisi buku tamu dan mematuhi norma lingkungan."
     },
     {
         "tanggal": "2026-10-12", "klasifikasi": "Pelayanan & Administrasi", "kategori": "Pelayanan & Administrasi",
@@ -659,7 +659,7 @@ data_rows = [
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Sekretaris & Bendahara RT 005",
         "score": 48, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Kelancaran administrasi perpajakan daerah dan pencegahan denda administrasi bagi pemilik properti rumah.",
-        "tindak_lanjut": "Pengurus RT 005 membagikan seluruh lembar SPPT PBB langsung ke pintu rumah warga tuntas dalam 2 hari."
+        "tindak_lanjut": "Pengurus RT 005 (Anen) membagikan seluruh lembar SPPT PBB langsung ke pintu rumah warga tuntas dalam 2 hari."
     },
     {
         "tanggal": "2026-10-13", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
@@ -674,10 +674,10 @@ data_rows = [
         "tanggal": "2026-10-14", "klasifikasi": "Pengaduan", "kategori": "Kebersihan & Lingkungan",
         "judul": "Asap Bakaran Sampah Daun Pekarangan Masuk ke Rumah Tetangga",
         "isi": "Salah satu warga RT 005 sering membakar sampah dedaunan pekarangan di dekat pagar pembatas setiap sore hari. Asapnya membuat jemuran pakaian tetangga bau sangit dan membuat batuk.",
-        "tipe": "Publik", "sumber": "WhatsApp Warga", "disposisi": "Ketua RT 005",
+        "tipe": "Publik", "sumber": "WhatsApp Warga", "disposisi": "Ketua RT 005 (Anen)",
         "score": 49, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Gangguan kenyamanan udara tetangga dan potensi polusi asap mikro pada lingkungan padat pemukiman.",
-        "tindak_lanjut": "Himbauan lisan dari Ketua RT 005 agar sampah daun dimasukkan ke dalam tong kompos dan tidak dibakar."
+        "tindak_lanjut": "Himbauan lisan dari Ketua RT 005 (Anen) agar sampah daun dimasukkan ke dalam tong kompos dan tidak dibakar."
     },
     {
         "tanggal": "2026-10-15", "klasifikasi": "Pengaduan", "kategori": "Keamanan & Ketertiban",
@@ -692,10 +692,10 @@ data_rows = [
         "tanggal": "2026-10-16", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Pohon Rambutan Tetangga Buahnya Berjatuhan Membusuk di Halaman Sebelah",
         "isi": "Dahan pohon rambutan lebat milik rumah sebelah menjulur ke pekarangan rumah saya di RT 005, buah busuknya berjatuhan mengotori lantai paving dan mengundang ulat bulu.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen)",
         "score": 44, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Ketidaknyamanan kebersihan halaman akibat tanaman yang melintasi tapal batas kepemilikan lahan tanah.",
-        "tindak_lanjut": "Kesepakatan pemangkasan ranting pohon yang menyeberangi pagar halaman difasilitasi Ketua RT 005."
+        "tindak_lanjut": "Kesepakatan pemangkasan ranting pohon yang menyeberangi pagar halaman difasilitasi Ketua RT 005 (Anen)."
     },
     {
         "tanggal": "2026-10-17", "klasifikasi": "Pengaduan", "kategori": "Fasilitas Umum & Infrastruktur",
@@ -737,7 +737,7 @@ data_rows = [
         "tanggal": "2026-10-21", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Uji Coba Pengeras Suara Toa Musala RT 005 Terlalu Kencang Saat Jam Istirahat",
         "isi": "Pengurus sound system musala menguji coba mikrofon dengan suara dengung sangat kencang berulang-ulang di siang hari tanpa aba-aba, mengagetkan balita yang sedang tidur lelap.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Pengurus Musala & Ketua RT 005",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Pengurus Musala & Ketua RT 005 (Anen)",
         "score": 45, "prioritas": "Sedang", "status": "SELESAI",
         "reason": "Gangguan kenyamanan akustik pemukiman akibat pengujian pengeras suara yang tidak pada waktunya.",
         "tindak_lanjut": "Pengurus musala RT 005 menurunkan volume gain mixer dan membatasi uji suara di jam luar istirahat."
@@ -847,7 +847,7 @@ data_rows = [
         "tanggal": "2026-11-02", "klasifikasi": "Pengaduan", "kategori": "Sosial & Kemasyarakatan",
         "judul": "Suara Ayam Jago Berkokok Menjelang Waktu Subuh di Belakang Rumah",
         "isi": "Ayam jago milik pekarangan tetangga berkokok cukup nyaring mulai jam 03.30 subuh setiap hari, terasa mengganggu jam tidur lelap saya.",
-        "tipe": "Anonim", "sumber": "SITARA Web", "disposisi": "Ketua RT 005",
+        "tipe": "Anonim", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen)",
         "score": 15, "prioritas": "Rendah", "status": "DITOLAK",
         "reason": "Suara ayam jago berkokok waktu subuh adalah perilaku alami hewan yang lumrah dan wajar di pemukiman.",
         "tindak_lanjut": "Aduan ditolak dengan edukasi ramah bahwa suara hewan ayam berkokok saat subuh merupakan hal biologis normal."
@@ -910,7 +910,7 @@ data_rows = [
         "tanggal": "2026-11-09", "klasifikasi": "Pengaduan", "kategori": "Lain-Lain",
         "judul": "Kucing Milik Tetangga Suka Tidur di Atas Kap Mesin Mobil",
         "isi": "Kucing tetangga kerap tidur siang di atas kap mobil saya yang baru saja dicuci bersih, meninggalkan jejak telapak kaki tanah berdebu.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen)",
         "score": 12, "prioritas": "Rendah", "status": "DITOLAK",
         "reason": "Keluhan ringan tanpa kerugian materiil signifikan yang dapat diselesaikan dengan penggunaan selimut penutup mobil.",
         "tindak_lanjut": "Warga disarankan secara santun untuk menggunakan mantel pelindung mobil saat memarkir di luar garasi."
@@ -927,7 +927,7 @@ data_rows = [
     {
         "tanggal": "2026-11-11", "klasifikasi": "Permintaan Informasi", "kategori": "Pelayanan & Administrasi",
         "judul": "Jadwal Pelayanan Jemput Bola KTP Digital (IKD) di Kelurahan Kebon Kelapa",
-        "isi": "Mohon informasi apakah petugas Disdukcapil Kota Bogor akan mengadakan layanan aktivasi Identitas Kependudukan Digital (IKD) di balai RW 007 Kebon Kelapa bulan ini?",
+        "isi": "Mohon informasi apakah petugas Disdukcapil Kota Bogor akan mengadakan layanan aktivasi Identitas Kependudukan Digital (IKD) di balai RW 007 (Pengurus RW: Sopian Sayuri) Kebon Kelapa bulan ini?",
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Sekretaris RT 005",
         "score": 23, "prioritas": "Rendah", "status": "SELESAI",
         "reason": "Permintaan informasi agenda pelayanan dokumen kependudukan digital dari instansi pemerintah kota.",
@@ -946,7 +946,7 @@ data_rows = [
         "tanggal": "2026-11-13", "klasifikasi": "Pengaduan", "kategori": "Lain-Lain",
         "judul": "Warna Cat Pagar Rumah Tetangga No 09 Dirasa Terlalu Terang",
         "isi": "Pagar rumah nomor 09 RT 005 baru dicat warna kuning neon mencolok, dirasa agak terlalu silau saat dipandang dari jendela depan rumah saya.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen)",
         "score": 10, "prioritas": "Rendah", "status": "DITOLAK",
         "reason": "Hak privat kepemilikan dan pilihan warna rumah pribadi yang tidak melanggar hukum atau ketertiban umum.",
         "tindak_lanjut": "Diberikan pemahaman ramah bahwa penentuan estetika warna cat properti pribadi merupakan hak penuh pemilik rumah."
@@ -954,7 +954,7 @@ data_rows = [
     {
         "tanggal": "2026-11-14", "klasifikasi": "Permintaan Informasi", "kategori": "Pelayanan & Administrasi",
         "judul": "Syarat Pembuatan Kartu Keluarga (KK) Baru Bagi Pasangan Baru Menikah",
-        "isi": "Saya baru menikah dan ingin memecah KK mandiri terpisah dari orang tua, mohon info berkas apa saja yang harus dibawa ke pak RT 005 untuk dibuatkan pengantar.",
+        "isi": "Saya baru menikah dan ingin memecah KK mandiri terpisah dari orang tua, mohon info berkas apa saja yang harus dibawa ke Pak RT Anen (RT 005) untuk dibuatkan pengantar.",
         "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Sekretaris RT 005",
         "score": 21, "prioritas": "Rendah", "status": "SELESAI",
         "reason": "Pertanyaan administratif pengurusan dokumen kependudukan baru keluarga muda.",
@@ -991,7 +991,7 @@ data_rows = [
         "tanggal": "2026-11-18", "klasifikasi": "Pengaduan", "kategori": "Lain-Lain",
         "judul": "Paket Belanja Online Salah Diantar ke Rumah Tetangga Sebelah",
         "isi": "Kurir pengiriman salah mengantar kardus paket perlengkapan dapur ke rumah nomor 06 RT 005 dan sempat dibuka oleh penghuni sebelum dikembalikan ke saya.",
-        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005",
+        "tipe": "Publik", "sumber": "SITARA Web", "disposisi": "Ketua RT 005 (Anen)",
         "score": 14, "prioritas": "Rendah", "status": "SELESAI",
         "reason": "Kekeliruan pengantaran oleh pihak ekspedisi yang telah terselesaikan secara damai antar tetangga.",
         "tindak_lanjut": "Kedua belah pihak saling memaafkan dan sepakat memeriksa nama resi paket sebelum membuka kemasan."
