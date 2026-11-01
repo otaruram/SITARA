@@ -5,7 +5,24 @@ import routes from './routes';
 
 const app = express();
 
-app.use(cors());
+// CORS Configuration with hardcoded domain sitara.biz.id
+const allowedOrigins = [
+  'https://sitara.biz.id',
+  'https://www.sitara.biz.id',
+  'http://localhost:5173',
+  'http://localhost:3000'
+];
+
+app.use(cors({
+  origin: (origin, callback) => {
+    if (!origin) return callback(null, true);
+    if (allowedOrigins.indexOf(origin) !== -1 || origin.endsWith('.sitara.biz.id') || origin.endsWith('.vercel.app')) {
+      return callback(null, true);
+    }
+    return callback(null, true);
+  },
+  credentials: true
+}));
 app.use(express.json());
 import path from 'path';
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
@@ -36,7 +53,12 @@ app.use((err: any, req: express.Request, res: express.Response, next: express.Ne
 
 // Root Endpoint
 app.get('/', (req, res) => {
-  res.send('SITARA Backend API (RT-Prioritas) is running!');
+  res.json({
+    app: 'SITARA Backend API (RT-Prioritas)',
+    domain: 'sitara.biz.id',
+    status: 'online',
+    timestamp: new Date().toISOString()
+  });
 });
 
 app.listen(Number(ENV.PORT), '0.0.0.0', () => {

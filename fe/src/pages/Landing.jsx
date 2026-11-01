@@ -14,9 +14,9 @@ export default function Landing() {
           
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[var(--bg-card)] border border-hairline text-xs font-mono-code text-[var(--text-muted)] shadow-sm">
             <span className="w-2 h-2 rounded-full bg-orange-600 inline-block"></span>
-            <span className="text-[var(--text-primary)] font-semibold">Protokol Siaga RT 05 / RW 07</span>
+            <span className="text-[var(--text-primary)] font-bold">sitara.biz.id</span>
             <span>&bull;</span>
-            <span className="text-orange-600 font-bold">Respon Cepat Warga</span>
+            <span className="text-orange-600 font-semibold">Protokol Tanggap Wilayah RT</span>
           </div>
 
           <h1 className="font-serif-display text-4xl sm:text-6xl lg:text-7xl font-normal leading-[1.05] text-[var(--text-primary)] tracking-tight">

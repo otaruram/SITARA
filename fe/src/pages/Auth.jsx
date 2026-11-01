@@ -18,10 +18,15 @@ export default function Auth() {
     setLoading(true);
     setError('');
     try {
+      // Hardcoded production domain sitara.biz.id with localhost fallback during local development
+      const redirectOrigin = (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1')
+        ? window.location.origin 
+        : 'https://sitara.biz.id';
+
       const { error } = await supabase.auth.signInWithOAuth({
         provider: 'google',
         options: {
-          redirectTo: `${window.location.origin}/auth/callback`,
+          redirectTo: `${redirectOrigin}/auth/callback`,
         },
       });
       if (error) throw error;

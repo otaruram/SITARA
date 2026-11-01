@@ -35,7 +35,9 @@ export default function Layout() {
       <div className="bg-stone-900 text-stone-300 text-xs py-1.5 px-4 border-b border-stone-800 font-mono-code flex items-center justify-between">
         <div className="flex items-center gap-2">
           <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse"></span>
-          <span className="text-stone-400">SITARA v2.4</span>
+          <span className="text-stone-100 font-bold tracking-wide">sitara.biz.id</span>
+          <span className="text-stone-600">|</span>
+          <span className="text-stone-400">v2.4</span>
           <span className="hidden sm:inline text-stone-600">|</span>
           <span className="hidden sm:inline text-stone-300 font-medium">Sistem Tanggap Darurat & Prioritas Pengaduan Warga Berbasis AI</span>
         </div>
@@ -164,7 +166,7 @@ export default function Layout() {
               <span className="flex items-center gap-1 text-emerald-700 font-semibold">
                 ● Layanan Darurat Aktif 24/7
               </span>
-              <span>Standar SP4N-LAPOR Compatible</span>
+              <span>Domain Resmi: <strong className="text-[var(--text-primary)]">sitara.biz.id</strong></span>
               <span>Hak Cipta &copy; {new Date().getFullYear()} SITARA</span>
             </div>
           </div>
