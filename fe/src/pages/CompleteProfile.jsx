@@ -125,11 +125,11 @@ export default function CompleteProfile() {
           <label className="block text-xs font-mono-code font-bold uppercase tracking-wider text-[var(--text-primary)]">
             Pilih Peranan Anda:
           </label>
-          <div className="grid grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 sm:gap-3">
             <button
               type="button"
               onClick={() => { setRole('WARGA'); setRt(''); setRw(''); setKelurahan(''); setKecamatan(''); setKota('KOTA BOGOR'); setSelectedLocation(''); }}
-              className={`p-4 rounded border text-left transition-colors cursor-pointer ${
+              className={`p-3.5 sm:p-4 rounded border text-left transition-colors cursor-pointer ${
                 role === 'WARGA' 
                   ? 'border-orange-600 bg-orange-50/50 shadow-sm' 
                   : 'border-hairline bg-[var(--bg-surface)] hover:border-stone-400'
@@ -147,7 +147,7 @@ export default function CompleteProfile() {
             <button
               type="button"
               onClick={() => { setRole('RT'); setRt(''); setRw(''); setKelurahan(''); setKecamatan(''); setKota('KOTA BOGOR'); setSelectedLocation(''); }}
-              className={`p-4 rounded border text-left transition-colors cursor-pointer ${
+              className={`p-3.5 sm:p-4 rounded border text-left transition-colors cursor-pointer ${
                 role === 'RT' 
                   ? 'border-orange-600 bg-orange-50/50 shadow-sm' 
                   : 'border-hairline bg-[var(--bg-surface)] hover:border-stone-400'

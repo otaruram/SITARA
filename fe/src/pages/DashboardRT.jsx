@@ -281,71 +281,71 @@ export default function DashboardRT() {
         </div>
       </div>
 
-      {/* 4 Telemetry Triage Metric Cards (Distribusi Rata 100 Data) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+      {/* 4 Telemetry Triage Metric Cards (Distribusi Rata 100 Data - Mobile 2x2 Grid) */}
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
         
         {/* Metric 1: Total */}
-        <div className="p-5 rounded border border-hairline bg-[var(--bg-card)] space-y-2">
-          <div className="flex items-center justify-between font-mono-code text-xs text-[var(--text-muted)] uppercase tracking-wider">
-            <span>Total Laporan RT {userRt}</span>
-            <span className="font-bold text-stone-900">100 DATA</span>
+        <div className="p-3.5 sm:p-5 rounded border border-hairline bg-[var(--bg-card)] space-y-1 sm:space-y-2">
+          <div className="flex items-center justify-between font-mono-code text-[10px] sm:text-xs text-[var(--text-muted)] uppercase tracking-wider">
+            <span>Total Laporan</span>
+            <span className="font-bold text-stone-900 hidden sm:inline">100 DATA</span>
           </div>
-          <div className="font-serif-display text-4xl font-bold text-[var(--text-primary)]">
+          <div className="font-serif-display text-2xl sm:text-4xl font-bold text-[var(--text-primary)]">
             {totalReports}
           </div>
-          <div className="font-mono-code text-[11px] text-[var(--text-muted)]">
-            Arsip lengkap laporan terregistrasi
+          <div className="font-mono-code text-[10px] sm:text-[11px] text-[var(--text-muted)] truncate">
+            Semua aduan terdaftar
           </div>
         </div>
 
         {/* Metric 2: Darurat Kritis (>=80) */}
         <div 
           onClick={() => { setActiveFilter('critical'); setCurrentPage(1); }}
-          className="p-5 rounded border-2 border-red-300 bg-red-50/50 space-y-2 cursor-pointer hover:bg-red-50 transition-colors"
+          className="p-3.5 sm:p-5 rounded border-2 border-red-300 bg-red-50/50 space-y-1 sm:space-y-2 cursor-pointer hover:bg-red-50 active:scale-[0.98] transition-all"
         >
           <div className="flex items-center justify-between">
-            <span className="font-mono-code text-xs text-red-700 uppercase tracking-wider font-bold">
-              Kritis & Darurat (≥80)
+            <span className="font-mono-code text-[10px] sm:text-xs text-red-700 uppercase tracking-wider font-bold truncate">
+              Kritis (≥80)
             </span>
-            <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span>
+            <span className="w-2 h-2 sm:w-2.5 sm:h-2.5 rounded-full bg-red-600 animate-pulse shrink-0"></span>
           </div>
-          <div className="font-serif-display text-4xl font-bold text-red-700">
+          <div className="font-serif-display text-2xl sm:text-4xl font-bold text-red-700">
             {criticalReports}
           </div>
-          <div className="font-mono-code text-[11px] text-red-600">
-            Bahaya keselamatan jiwa & bencana
+          <div className="font-mono-code text-[10px] sm:text-[11px] text-red-600 truncate">
+            Bahaya darurat jiwa
           </div>
         </div>
 
         {/* Metric 3: Menengah (40-79) */}
         <div 
           onClick={() => { setActiveFilter('medium'); setCurrentPage(1); }}
-          className="p-5 rounded border border-amber-300 bg-amber-50/40 space-y-2 cursor-pointer hover:bg-amber-50 transition-colors"
+          className="p-3.5 sm:p-5 rounded border border-amber-300 bg-amber-50/40 space-y-1 sm:space-y-2 cursor-pointer hover:bg-amber-50 active:scale-[0.98] transition-all"
         >
-          <div className="font-mono-code text-xs text-amber-800 uppercase tracking-wider font-bold">
-            Gangguan Menengah (40–79)
+          <div className="font-mono-code text-[10px] sm:text-xs text-amber-800 uppercase tracking-wider font-bold truncate">
+            Menengah (40–79)
           </div>
-          <div className="font-serif-display text-4xl font-bold text-amber-700">
+          <div className="font-serif-display text-2xl sm:text-4xl font-bold text-amber-700">
             {mediumReports}
           </div>
-          <div className="font-mono-code text-[11px] text-amber-700">
-            Fasilitas umum, sampah & drainase
+          <div className="font-mono-code text-[10px] sm:text-[11px] text-amber-700 truncate">
+            Gangguan lingkungan
           </div>
         </div>
 
         {/* Metric 4: Ringan (<40) */}
         <div 
           onClick={() => { setActiveFilter('low'); setCurrentPage(1); }}
-          className="p-5 rounded border border-emerald-300 bg-emerald-50/30 space-y-2 cursor-pointer hover:bg-emerald-50 transition-colors"
+          className="p-3.5 sm:p-5 rounded border border-emerald-300 bg-emerald-50/30 space-y-1 sm:space-y-2 cursor-pointer hover:bg-emerald-50 active:scale-[0.98] transition-all"
         >
-          <div className="font-mono-code text-xs text-emerald-800 uppercase tracking-wider font-bold">
-            Ringan & Info (&lt;40)
+          <div className="font-mono-code text-[10px] sm:text-xs text-emerald-800 uppercase tracking-wider font-bold truncate">
+            Ringan (&lt;40)
           </div>
-          <div className="font-serif-display text-4xl font-bold text-emerald-700">
+          <div className="font-serif-display text-2xl sm:text-4xl font-bold text-emerald-700">
             {lowReports}
           </div>
-          <div className="font-mono-code text-[11px] text-emerald-700">
-            Surat pengantar & info kependudukan
+          <div className="font-mono-code text-[10px] sm:text-[11px] text-emerald-700 truncate">
+            Surat & info warga
           </div>
         </div>
 
@@ -374,59 +374,61 @@ export default function DashboardRT() {
           )}
         </div>
 
-        {/* Filter Pills */}
-        <div className="flex items-center justify-between flex-wrap gap-2 pt-2 border-t border-hairline">
-          <div className="flex items-center gap-1.5 flex-wrap font-mono-code text-xs">
+        {/* Filter Pills with Mobile Horizontal Touch Scroll */}
+        <div className="flex items-center justify-between flex-wrap gap-3 pt-2 border-t border-hairline">
+          <div className="flex items-center gap-1.5 overflow-x-auto no-scrollbar py-1 flex-nowrap sm:flex-wrap font-mono-code text-xs w-full sm:w-auto shrink-0">
             <button 
               onClick={() => { setActiveFilter('all'); setCurrentPage(1); }}
-              className={`px-3 py-1.5 rounded transition-colors ${activeFilter === 'all' ? 'bg-stone-900 text-white font-bold' : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'}`}
+              className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap cursor-pointer ${activeFilter === 'all' ? 'bg-stone-900 text-white font-bold' : 'text-[var(--text-muted)] hover:text-[var(--text-primary)]'}`}
             >
               Semua ({totalReports})
             </button>
             <button 
               onClick={() => { setActiveFilter('critical'); setCurrentPage(1); }}
-              className={`px-3 py-1.5 rounded transition-colors ${activeFilter === 'critical' ? 'bg-red-600 text-white font-bold' : 'text-red-700 hover:bg-red-50'}`}
+              className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap cursor-pointer ${activeFilter === 'critical' ? 'bg-red-600 text-white font-bold' : 'text-red-700 hover:bg-red-50'}`}
             >
               ⚠️ Darurat ({criticalReports})
             </button>
             <button 
               onClick={() => { setActiveFilter('medium'); setCurrentPage(1); }}
-              className={`px-3 py-1.5 rounded transition-colors ${activeFilter === 'medium' ? 'bg-amber-600 text-white font-bold' : 'text-amber-800 hover:bg-amber-50'}`}
+              className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap cursor-pointer ${activeFilter === 'medium' ? 'bg-amber-600 text-white font-bold' : 'text-amber-800 hover:bg-amber-50'}`}
             >
               🟡 Menengah ({mediumReports})
             </button>
             <button 
               onClick={() => { setActiveFilter('low'); setCurrentPage(1); }}
-              className={`px-3 py-1.5 rounded transition-colors ${activeFilter === 'low' ? 'bg-stone-700 text-white font-bold' : 'text-stone-600 hover:bg-stone-100'}`}
+              className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap cursor-pointer ${activeFilter === 'low' ? 'bg-stone-700 text-white font-bold' : 'text-stone-600 hover:bg-stone-100'}`}
             >
               🟢 Ringan ({lowReports})
             </button>
             <button 
               onClick={() => { setActiveFilter('process'); setCurrentPage(1); }}
-              className={`px-3 py-1.5 rounded transition-colors ${activeFilter === 'process' ? 'bg-blue-600 text-white font-bold' : 'text-blue-700 hover:bg-blue-50'}`}
+              className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap cursor-pointer ${activeFilter === 'process' ? 'bg-blue-600 text-white font-bold' : 'text-blue-700 hover:bg-blue-50'}`}
             >
               Diproses ({inProgressReports})
             </button>
             <button 
               onClick={() => { setActiveFilter('done'); setCurrentPage(1); }}
-              className={`px-3 py-1.5 rounded transition-colors ${activeFilter === 'done' ? 'bg-emerald-700 text-white font-bold' : 'text-emerald-700 hover:bg-emerald-50'}`}
+              className={`px-3 py-1.5 rounded transition-colors whitespace-nowrap cursor-pointer ${activeFilter === 'done' ? 'bg-emerald-700 text-white font-bold' : 'text-emerald-700 hover:bg-emerald-50'}`}
             >
               Selesai ({completedReports})
             </button>
           </div>
 
           {/* Items Per Page Selector */}
-          <div className="flex items-center gap-2 font-mono-code text-xs text-[var(--text-muted)]">
+          <div className="flex items-center justify-between sm:justify-end gap-2 font-mono-code text-xs text-[var(--text-muted)] w-full sm:w-auto pt-1 sm:pt-0 border-t sm:border-t-0 border-hairline">
             <span>Tampilkan:</span>
-            {[10, 25, 50, 100].map(count => (
-              <button
-                key={count}
-                onClick={() => { setItemsPerPage(count); setCurrentPage(1); }}
-                className={`px-2 py-0.5 rounded ${itemsPerPage === count ? 'bg-orange-600 text-white font-bold' : 'hover:bg-stone-200 text-stone-700'}`}
-              >
-                {count}
-              </button>
-            ))}
+            <div className="flex items-center gap-1">
+              {[10, 25, 50, 100].map(count => (
+                <button
+                  key={count}
+                  onClick={() => { setItemsPerPage(count); setCurrentPage(1); }}
+                  className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${itemsPerPage === count ? 'bg-orange-600 text-white font-bold' : 'hover:bg-stone-200 text-stone-700'}`}
+                >
+                  {count}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
 

@@ -238,7 +238,7 @@ export default function DashboardWarga() {
                 type="text" 
                 value={title}
                 onChange={(e) => setTitle(e.target.value)}
-                className="w-full px-4 py-2.5 rounded border border-hairline bg-[var(--bg-surface)] text-[var(--text-primary)] text-sm focus:border-orange-600 focus:bg-[var(--bg-card)] transition-colors font-sans"
+                className="w-full px-4 py-2.5 rounded border border-hairline bg-[var(--bg-surface)] text-[var(--text-primary)] text-base sm:text-sm focus:border-orange-600 focus:bg-[var(--bg-card)] transition-colors font-sans"
                 placeholder="Misal: Kabel tiang listrik putus atau lampu jalan padam di gang 2"
                 required
               />
@@ -254,7 +254,7 @@ export default function DashboardWarga() {
                   type="tel" 
                   value={whatsapp}
                   onChange={(e) => setWhatsapp(e.target.value)}
-                  className="w-full px-4 py-2.5 rounded border border-hairline bg-[var(--bg-surface)] text-[var(--text-primary)] text-sm focus:border-orange-600 focus:bg-[var(--bg-card)] transition-colors font-mono-code"
+                  className="w-full px-4 py-2.5 rounded border border-hairline bg-[var(--bg-surface)] text-[var(--text-primary)] text-base sm:text-sm focus:border-orange-600 focus:bg-[var(--bg-card)] transition-colors font-mono-code"
                   placeholder="081234567890"
                 />
               </div>
@@ -291,7 +291,7 @@ export default function DashboardWarga() {
                 value={desc}
                 onChange={(e) => setDesc(e.target.value)}
                 rows={4}
-                className="w-full px-4 py-2.5 rounded border border-hairline bg-[var(--bg-surface)] text-[var(--text-primary)] text-sm focus:border-orange-600 focus:bg-[var(--bg-card)] transition-colors font-sans resize-none leading-relaxed"
+                className="w-full px-4 py-2.5 rounded border border-hairline bg-[var(--bg-surface)] text-[var(--text-primary)] text-base sm:text-sm focus:border-orange-600 focus:bg-[var(--bg-card)] transition-colors font-sans resize-none leading-relaxed"
                 placeholder="Jelaskan kondisi secara faktual: waktu terlihat, dampak terhadap warga, potensi bahaya, dsb..."
                 required
               />

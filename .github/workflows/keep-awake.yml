@@ -21,3 +21,4 @@ jobs:
           echo "Sending keep-alive ping to $TARGET_URL/api/health ..."
           STATUS_CODE=$(curl -s -o /dev/null -w "%{http_code}" "$TARGET_URL/api/health" || true)
           echo "Health check response code: $STATUS_CODE"
+

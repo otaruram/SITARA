@@ -32,39 +32,39 @@ export default function Layout() {
     <div className="min-h-screen flex flex-col texture-paper antialiased selection:bg-orange-500 selection:text-white transition-colors duration-200">
       
       {/* Hallmark Top Telemetry & Archetype Bar */}
-      <div className="bg-stone-900 text-stone-300 text-xs py-1.5 px-4 border-b border-stone-800 font-mono-code flex items-center justify-between">
-        <div className="flex items-center gap-2">
-          <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse"></span>
+      <div className="bg-stone-900 text-stone-300 text-xs py-1.5 px-3 sm:px-4 border-b border-stone-800 font-mono-code flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
+        <div className="flex items-center gap-2 shrink-0">
+          <span className="w-2 h-2 rounded-full bg-emerald-400 inline-block animate-pulse shrink-0"></span>
           <span className="text-stone-100 font-bold tracking-wide">sitara.biz.id</span>
           <span className="text-stone-600">|</span>
           <span className="text-stone-400">v2.4</span>
-          <span className="hidden sm:inline text-stone-600">|</span>
-          <span className="hidden sm:inline text-stone-300 font-medium">Sistem Tanggap Darurat & Prioritas Pengaduan Warga Berbasis AI</span>
+          <span className="hidden md:inline text-stone-600">|</span>
+          <span className="hidden md:inline text-stone-300 font-medium">Sistem Tanggap Darurat & Prioritas Pengaduan Warga Berbasis AI</span>
         </div>
 
         {/* Hallmark Theme Persona Switcher */}
-        <div className="flex items-center gap-1.5 text-[11px]">
-          <span className="text-stone-400 hidden md:inline">Karakter Desain:</span>
+        <div className="flex items-center gap-1 text-[10px] sm:text-[11px] shrink-0">
+          <span className="text-stone-400 hidden sm:inline mr-1">Tema:</span>
           <button
             onClick={() => setTheme('atelier')}
-            className={`px-2 py-0.5 rounded transition-colors ${theme === 'atelier' ? 'bg-orange-700 text-white font-bold' : 'text-stone-400 hover:text-white'}`}
+            className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${theme === 'atelier' ? 'bg-orange-700 text-white font-bold' : 'text-stone-400 hover:text-white'}`}
             title="Karakter 1: Atelier / Civic Heritage (Warm Paper & Craft)"
           >
-            Atelier (Heritage)
+            Atelier
           </button>
           <button
             onClick={() => setTheme('terminal')}
-            className={`px-2 py-0.5 rounded transition-colors ${theme === 'terminal' ? 'bg-stone-700 text-emerald-300 font-bold' : 'text-stone-400 hover:text-white'}`}
+            className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${theme === 'terminal' ? 'bg-stone-700 text-emerald-300 font-bold' : 'text-stone-400 hover:text-white'}`}
             title="Karakter 2: Relay / Emergency Telemetry (Console Gelap & Triage)"
           >
-            Relay (Telemetry)
+            Relay
           </button>
           <button
             onClick={() => setTheme('clean')}
-            className={`px-2 py-0.5 rounded transition-colors ${theme === 'clean' ? 'bg-sky-700 text-white font-bold' : 'text-stone-400 hover:text-white'}`}
+            className={`px-2 py-0.5 rounded transition-colors cursor-pointer ${theme === 'clean' ? 'bg-sky-700 text-white font-bold' : 'text-stone-400 hover:text-white'}`}
             title="Karakter 3: Civil Clean (Modern Municipal Minimal)"
           >
-            Civil Clean
+            Civil
           </button>
         </div>
       </div>
